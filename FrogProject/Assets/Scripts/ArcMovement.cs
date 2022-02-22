@@ -2,96 +2,109 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
+
 
 public class ArcMovement : MonoBehaviour
 {
 
     private LineRenderer line_renderer;
-    List<Vector3> points = new List<Vector3>(); //Point to follow and to draw the linear render
-    Camera camera;
+    List<Vector3> points = new List<Vector3>(); //List of points to draw the linear render
+   
     Rigidbody2D rb;
+    IEnumerator lineTrajectory; // Corutine to draw the trajectory
 
   
-    public float mass;
-    public float velosityboost;
-    public float timeStep = 0.1f;
-    public float maxDuration;
- 
-    Coroutine coroutine;
+    [Header("Parabola setting")]
+    public float    vel_multiplier      = 1     ;   //Multiplier to increase the intial velocity
+    public float    timeStep            = 0.1f  ;   //Time passed between points
+    public int      defaultPointsCount  = 50    ;   //Inital count of trajectory's points
 
-    FrogActions frogactions;
-    private void Awake()
-    {
-        frogactions = new FrogActions();
-    }
-    private void OnEnable()
-    {
-        frogactions.Enable();
-    }
-    private void OnDisable()
-    {
-        frogactions.Disable();
-    }
+    [Header("Limits configuration")]
+    public int      maxHeight           = 10    ;   //Max height of the parabola 
+    public int      minHeight           = 5     ;   //Min height of the parabola
+
+    [Space(10)]
+    public float    maxAngle            = 135   ;   //Max angle  of the initial direction
+    public float    minAngle            = 45    ;   //Min angle  of the initial direction
+    float           initial_velocity    = 0     ;   //Initial velocity
+
+    float           rad_angle;                      //Angle in radians
+    Vector2         startTouchPosition;             
+    Vector3         direction;
 
 
-    // Start is called before the first frame update
     void Start()
     {
+
         line_renderer = GetComponent<LineRenderer>();
-        ClearLinerendere(points.Count);//((int)(maxDuration / timeStep));
-        camera = Camera.main;
+
         rb = GetComponent<Rigidbody2D>();
 
-        
-        frogactions.Play.Trajectory.started += Test;
-        frogactions.Play.Trajectory.canceled += Test2;
+        //Reset the Line Renderer's points count
+        ClearLinerendere(points.Count);
+                
     }
 
-    Vector2 startTouchPosition;
-    private void Test(InputAction.CallbackContext context)
+    //Start the trajectory prediction
+    public void StartMovement(Vector2 start , FrogActions frogInput)
     {
 
+        startTouchPosition = Camera.main.ScreenToWorldPoint(start);
 
-        startTouchPosition = camera.ScreenToWorldPoint(frogactions.Play.TouchPosition.ReadValue<Vector2>());
+        lineTrajectory = LineTrajectory(frogInput);
 
-        coroutine = StartCoroutine("LineTrajectory");
+        StartCoroutine(lineTrajectory);
     }
 
-    float velocityrb = 0;
-    Vector3 direction;
-    public int maxHeight;
-    public int minHeight;
-    public float maxAngle;
-    public float minAngle;
-    public float rad_angle;
-
-    IEnumerator LineTrajectory()
+    //Start the movement
+    public void Move()
     {
-        
+        ClearLinerendere(defaultPointsCount);
+
+        StopCoroutine(lineTrajectory);
+
+        rb.velocity = new Vector2(direction.x * initial_velocity, direction.y * initial_velocity);
+
+    }
+
+
+    #region Trajectory prediction Functions
+
+    /// <summary>
+    /// Courutine to predict and draw the trajectory
+    /// </summary>
+    /// <param name="input"> ActionMap variable</param>
+    /// <returns></returns>
+    IEnumerator LineTrajectory(FrogActions input)
+    {
         while(true)
         {
-            Vector2 endTouchPosition = camera.ScreenToWorldPoint(frogactions.Play.TouchPosition.ReadValue<Vector2>());
+            //Get the direction vector from de first click to the actual position of the mouse/finger
+            Vector2 endTouchPosition = Camera.main.ScreenToWorldPoint(input.Play.TouchPosition.ReadValue<Vector2>());
 
             direction = endTouchPosition - startTouchPosition ;
 
-          
+            //Invert the vector to achive the invert control 
+            direction = -direction;
 
-            direction = -direction;//Invert the direction
 
+            #region Limit cases 
+
+            // y axis cant be below 0
             if (direction.y < 0) direction.y = 0;
 
 
-
             float vel_magnitude = direction.magnitude;
+
             if (vel_magnitude < minHeight) vel_magnitude = minHeight;
             if (vel_magnitude > maxHeight) vel_magnitude = maxHeight;
 
-
-
+            //Get the horizontal vector as base to find out the angle   
             Vector2 point_base = new Vector2(startTouchPosition.x + 100, startTouchPosition.y);
             Vector3 vecbase = point_base - startTouchPosition;
-               
+            
+            //Angle in degrees 
             float angle = Vector3.Angle(vecbase, direction);
 
 
@@ -99,7 +112,8 @@ public class ArcMovement : MonoBehaviour
             if (angle <= minAngle)
             {
                 angle = minAngle;
-                rad_angle = minAngle * Mathf.PI / 180;
+                rad_angle = DegreesToRadians( minAngle );
+
                 direction.x = Mathf.Cos(rad_angle) * vel_magnitude;
                 direction.y = Mathf.Sin(rad_angle) * vel_magnitude;
         
@@ -108,23 +122,24 @@ public class ArcMovement : MonoBehaviour
             else if (angle >= maxAngle)
             {
                 angle = maxAngle;
-                rad_angle = maxAngle * Mathf.PI / 180;
+                rad_angle = DegreesToRadians( maxAngle );
+
                 direction.x = Mathf.Cos(rad_angle) * vel_magnitude;
                 direction.y = Mathf.Sin(rad_angle) * vel_magnitude;
             }
             else
-                rad_angle = angle * Mathf.PI / 180;
+                rad_angle = DegreesToRadians( angle );
 
-         
-            direction = direction.normalized; // vector normalized
+            #endregion
 
 
-            velocityrb = vel_magnitude ;
+            direction = direction.normalized; // direction vector normalized
+
+
+            initial_velocity = vel_magnitude * vel_multiplier / rb.mass;
           
-            ParabolicTrajectoryPoints(velocityrb, direction);
-            DrawParabolic();
-           
-
+            ParabolicTrajectoryPoints(initial_velocity, direction);
+                      
             yield return null;
         }
     }
@@ -135,26 +150,25 @@ public class ArcMovement : MonoBehaviour
     /// <param name="velocity"></param>
     /// <param name="direction"></param>
     /// <returns></returns>
-    public void ParabolicTrajectoryPoints(float velocity , Vector3 direction)
+    private void ParabolicTrajectoryPoints(float velocity , Vector3 direction)
     {
+
         points.Clear();
        
 
-       // points.Add(transform.position + direction);
-
-        for (int i = 0; i < (int)(maxDuration / timeStep); i++)
+        for (int i = 0; i < defaultPointsCount; i++)
         {
-
-            Vector3 next_position = transform.position +
-                                    new Vector3(direction.x * velocity, direction.y * velocity,0) * i * timeStep ;
+            // x = x0 + v0*y   y = y0 + v0*t - (g*t^2)/2 
+            Vector3 next_position = transform.position + direction * velocity * i * timeStep ;
 
             next_position.y += 0.5f * Physics2D.gravity.y * i * timeStep * i * timeStep;
          
 
-            //Metodo con lineRaycast
-            if (i>1 )
+            //Check for collisions
+            if (i > 1 )
             {
                 RaycastHit2D hit = Physics2D.Linecast(points[i - 1], next_position, 1 << LayerMask.NameToLayer("Collide Raycast"));
+
                 if(hit)
                 {
                     points.Add(hit.point);
@@ -162,36 +176,12 @@ public class ArcMovement : MonoBehaviour
                 }
             }
             
-
-
             points.Add(next_position);
         }
-     
+        DrawParabolic();
     }
 
 
-
-    private void Test2(InputAction.CallbackContext obj)
-    {
-        ClearLinerendere((int)(maxDuration / timeStep));
-
-        StopCoroutine(coroutine);
-
-
-
-        rb.velocity = new Vector2(direction.x * velocityrb, direction.y * velocityrb);
-
-    }
-
- 
-
-
-
-    private void ClearLinerendere(int totalpositions)
-    {
-        line_renderer.positionCount = 0;
-        line_renderer.positionCount = totalpositions;
-    }
 
     /// <summary>
     /// Draws a lines through the given points with Line Render.
@@ -200,18 +190,30 @@ public class ArcMovement : MonoBehaviour
     private void DrawParabolic()
     {
         ClearLinerendere(points.Count);
-       // line_renderer.positionCount = points.Count;
+       
         line_renderer.SetPosition(0, transform.position + direction);
+
         for (int i = 1; i < points.Count; i++)
         {
             line_renderer.SetPosition(i, points[i]);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    #endregion
+
+
+    private void ClearLinerendere(int totalpositions)
     {
-     
+        line_renderer.positionCount = 0;
+        line_renderer.positionCount = totalpositions;
+    }
+    private float DegreesToRadians(float degree_angle)
+    {
+        return degree_angle * Mathf.PI / 180;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {    
         rb.velocity = new Vector2 (0,0);
-        Debug.Log("PARADO");
     }
 }
