@@ -33,6 +33,7 @@ public class ArcMovement : MonoBehaviour
     Vector2         startTouchPosition;             
     Vector3         direction;
 
+    public bool isGrounded;
 
     void Start()
     {
@@ -43,12 +44,13 @@ public class ArcMovement : MonoBehaviour
 
         //Reset the Line Renderer's points count
         ClearLinerendere(points.Count);
-                
+        isGrounded = true;
     }
 
     //Start the trajectory prediction
     public void StartMovement(Vector2 start , FrogActions frogInput)
     {
+        if (!isGrounded) return;
 
         startTouchPosition = Camera.main.ScreenToWorldPoint(start);
 
@@ -57,15 +59,22 @@ public class ArcMovement : MonoBehaviour
         StartCoroutine(lineTrajectory);
     }
 
+ 
     //Start the movement
     public void Move()
     {
+        //Cant move in air
+        if (!isGrounded || startTouchPosition == Vector2.zero) return; 
+
         ClearLinerendere(defaultPointsCount);
 
         StopCoroutine(lineTrajectory);
 
         rb.velocity = new Vector2(direction.x * initial_velocity, direction.y * initial_velocity);
 
+        startTouchPosition = Vector2.zero;
+        isGrounded = false;
+       
     }
 
 
@@ -215,5 +224,6 @@ public class ArcMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {    
         rb.velocity = new Vector2 (0,0);
+        isGrounded = true;
     }
 }
