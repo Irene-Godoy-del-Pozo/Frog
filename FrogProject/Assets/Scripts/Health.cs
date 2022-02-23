@@ -18,7 +18,8 @@ public class Health : MonoBehaviour
 
     void RestartHealth()
     {
-        currentHealth = maxHealth;
+        currentHealth = GameManager._intance.maxHealth;
+        Debug.Log("HealthMax: " + currentHealth);
     }
 
     void Damaged()

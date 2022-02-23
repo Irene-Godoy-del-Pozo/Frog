@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour
     {
         frogactions = new FrogActions();
 
-        DontDestroyOnLoad(transform.gameObject);
+   
     }
     private void OnEnable()
     {
