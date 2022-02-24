@@ -14,22 +14,27 @@ public class Level : MonoBehaviour
     //bool finished = false;
 
     [SerializeField]
-    Vector3 strart_Position;
+    public Transform strart_Position;
 
     public List<Flies> flies = new List<Flies>();
 
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void LevelFinished ()
     {
-
-        
-
+        Debug.Log("Ha llegado al level");
+        GameManager._intance.LevelFinished(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+
+
+
+
+
+
+
+
+
 }

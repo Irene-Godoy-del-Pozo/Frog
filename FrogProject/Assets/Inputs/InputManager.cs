@@ -33,6 +33,7 @@ public class InputManager : MonoBehaviour
     
         frogactions.Play.Trajectory.started     += DrawTrajectory;
         frogactions.Play.Trajectory.canceled    += Move;
+        frogactions.Play.Debug.performed        += Debug;
     }
 
 
@@ -46,6 +47,9 @@ public class InputManager : MonoBehaviour
         player.GetComponent<ArcMovement>().Move();
     }
 
-
+    private void Debug(InputAction.CallbackContext context)
+    {
+        GameManager._intance.currentLevel.LevelFinished();
+    }
 
 }
