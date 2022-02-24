@@ -16,7 +16,7 @@ public class Level : MonoBehaviour
     [SerializeField]
     Vector3 strart_Position;
 
-    //TODO: FliesScript -------> public List<Flies> flies = new List<Flies>();
+    public List<Flies> flies = new List<Flies>();
 
 
     // Start is called before the first frame update
