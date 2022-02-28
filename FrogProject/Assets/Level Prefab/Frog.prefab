@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8976258146146037616}
   m_Layer: 2
   m_Name: Frog
-  m_TagString: Terrain
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

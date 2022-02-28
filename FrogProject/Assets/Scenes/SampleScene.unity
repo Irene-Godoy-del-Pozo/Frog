@@ -198,13 +198,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 4
   currentLevel: {fileID: 0}
-  playerPref: {fileID: 0}
-  inputManager: {fileID: 0}
+  playerPref: {fileID: 8976258146146037623, guid: 897478a8dfabddc4c9e69704187884f4, type: 3}
+  inputManager: {fileID: 1005051949}
   levelList:
   - lvl_Prefab: {fileID: 8336036030868917312, guid: c4e8816e6095d2e4ab7c91866b2ec88c, type: 3}
-    lvl_Finished: 0
+    lvl_Finished: 1
     lvl_Name: 
-    flies_taken: 010101
+    flies_taken: 000001
 --- !u!4 &1995205681
 Transform:
   m_ObjectHideFlags: 0

@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Flies : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //TODO: DECIDIR SI SE QUIERE QUE SIGA UN CAMINO Y LAS ANMACIONES
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.tag.Equals("Player"))
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

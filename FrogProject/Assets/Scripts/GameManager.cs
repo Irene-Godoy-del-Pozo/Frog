@@ -56,16 +56,10 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(transform.gameObject);
 
-        /*TODO: Acceder al script level de cada gameobject y->
-         
-         * 2-  desactivar las moscas que ya hallan sido recogidas en caso de que ya nos lo hubiesemos pasado el nivel
-         * 
-         * Esto deberia cargarse desde player pref o de algun sitio con los datos guardados.
-         */
 
         LevelInitialitation();
 
-        StartLevel(0);
+        StartLevel(0);//TEMPORAL
     }
     
     void LevelInitialitation ()
@@ -75,36 +69,33 @@ public class GameManager : MonoBehaviour
         {
             //Add Clone to the name for easiest comparations in the future
             _levelinfo.set_Name(_levelinfo.lvl_Prefab.name + "(Clone)");
-     
-            //Only check the flies taken if the player has completed the level
-            if (_levelinfo.lvl_Finished)
-            {
-                Level level = _levelinfo.lvl_Prefab.GetComponent<Level>();
 
-                //Activate/Deactivate flie's gameObjects 
-                ActivateFlies(_levelinfo.getFlies(),level.flies);
+            Level a = _levelinfo.lvl_Prefab.GetComponent<Level>();
+            //TODO: CARGAR DEL ARCHIVO DE GUARDADO LAS FLIES TAKEN Y TODOS LOS DATOS DE CADA NIVEL GUARDADOS
 
-            }
+            ////Only check the flies taken if the player has completed the level
+            //if (_levelinfo.lvl_Finished)
+            //{
+            //    //Level level = _levelinfo.lvl_Prefab.GetComponent<Level>();
+
+            //    //Activate/Deactivate flie's gameObjects 
+            //    ActivateFlies(_levelinfo);//_levelinfo.getFlies(),level.flies);
+
+            //}
 
 
-           
+
         }
       
     }
 
   
-    //Activate or Deactivate flies gameobject given the bool[] 
-    private void ActivateFlies(List<bool> fliestaken , List<Flies> levelflies)
-    {        
-        for (int i = 0; i < fliestaken.Count; i++)
-        {
-            levelflies[i].gameObject.SetActive(fliestaken[i]);            
-        }
-    }
+
 
     /* Acabar nivel:
-     * 1- Guardas info en el struct
-     * * 1-  poner las moscas maximas como lenght de flies taken. ESTO SE HACE AL TERMINAR NIVEL
+     * 1- DONE Guardas info en el struct
+     * * 1-  DONE poner las moscas maximas como lenght de flies taken. ESTO SE HACE AL TERMINAR NIVEL
+     * 
      * 2- Desactivas gameobject
      * 3- Vuelves a Menu de niveles
      * 
@@ -136,12 +127,47 @@ public class GameManager : MonoBehaviour
 
     void StartLevel(int index)
     {
-        //TODO: COMPROBAR SI YA NOS LO HEMOS PASADO -----> VOLVER A HACER LO DEL CHEK DE MOSCAS
+        
+        ActivateFlies(levelList[index], levelList[index].lvl_Finished);
+
         GameObject a = Instantiate(levelList[index].lvl_Prefab);
+
+        
 
         currentLevel = a.GetComponent<Level>();
 
         inputManager.player = Instantiate(playerPref, levelList[index].lvl_Prefab.GetComponent<Level>().strart_Position.position, playerPref.transform.rotation);
     }
+
+    //Activate or Deactivate flies gameobject given the level info 
+    private void ActivateFlies(LevelInfo levelInfo, bool isPassed) //List<bool> fliestaken , List<Flies> levelflies)
+    {
+        Level level = levelInfo.lvl_Prefab.GetComponent<Level>();
+        //Set Active according to information stored in level info
+        if(isPassed)
+        {
+            for (int i = 0; i < levelInfo.getFlies().Count; i++)
+            {
+                level.flies[i].gameObject.SetActive(levelInfo.getFlies()[i]);
+            }
+        }
+        //Set active true 
+        else
+        {
+            for (int i = 0; i < level.flies.Count; i++)
+            {
+                level.flies[i].gameObject.SetActive(true);
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
 }
 
