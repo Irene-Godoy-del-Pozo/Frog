@@ -130,13 +130,15 @@ public class GameManager : MonoBehaviour
         
         ActivateFlies(levelList[index], levelList[index].lvl_Finished);
 
+        inputManager.player = Instantiate(playerPref);// ,levelList[index].lvl_Prefab.GetComponent<Level>().start_Position.position, playerPref.transform.rotation);
         GameObject a = Instantiate(levelList[index].lvl_Prefab);
 
         
 
         currentLevel = a.GetComponent<Level>();
 
-        inputManager.player = Instantiate(playerPref, levelList[index].lvl_Prefab.GetComponent<Level>().strart_Position.position, playerPref.transform.rotation);
+        currentLevel.SetPlayer(inputManager.player);
+
     }
 
     //Activate or Deactivate flies gameobject given the level info 

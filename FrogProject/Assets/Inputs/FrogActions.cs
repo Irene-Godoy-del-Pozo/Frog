@@ -41,6 +41,14 @@ public class @FrogActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Debug 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""390f5259-35d5-4ec6-8c36-d49ac6571c09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -76,6 +84,17 @@ public class @FrogActions : IInputActionCollection, IDisposable
                     ""action"": ""Debug"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d4232692-e2d9-4d21-b601-a2b11b1f4de4"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Debug 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -87,6 +106,7 @@ public class @FrogActions : IInputActionCollection, IDisposable
         m_Play_Trajectory = m_Play.FindAction("Trajectory", throwIfNotFound: true);
         m_Play_TouchPosition = m_Play.FindAction("TouchPosition", throwIfNotFound: true);
         m_Play_Debug = m_Play.FindAction("Debug", throwIfNotFound: true);
+        m_Play_Debug2 = m_Play.FindAction("Debug 2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -139,6 +159,7 @@ public class @FrogActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Play_Trajectory;
     private readonly InputAction m_Play_TouchPosition;
     private readonly InputAction m_Play_Debug;
+    private readonly InputAction m_Play_Debug2;
     public struct PlayActions
     {
         private @FrogActions m_Wrapper;
@@ -146,6 +167,7 @@ public class @FrogActions : IInputActionCollection, IDisposable
         public InputAction @Trajectory => m_Wrapper.m_Play_Trajectory;
         public InputAction @TouchPosition => m_Wrapper.m_Play_TouchPosition;
         public InputAction @Debug => m_Wrapper.m_Play_Debug;
+        public InputAction @Debug2 => m_Wrapper.m_Play_Debug2;
         public InputActionMap Get() { return m_Wrapper.m_Play; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -164,6 +186,9 @@ public class @FrogActions : IInputActionCollection, IDisposable
                 @Debug.started -= m_Wrapper.m_PlayActionsCallbackInterface.OnDebug;
                 @Debug.performed -= m_Wrapper.m_PlayActionsCallbackInterface.OnDebug;
                 @Debug.canceled -= m_Wrapper.m_PlayActionsCallbackInterface.OnDebug;
+                @Debug2.started -= m_Wrapper.m_PlayActionsCallbackInterface.OnDebug2;
+                @Debug2.performed -= m_Wrapper.m_PlayActionsCallbackInterface.OnDebug2;
+                @Debug2.canceled -= m_Wrapper.m_PlayActionsCallbackInterface.OnDebug2;
             }
             m_Wrapper.m_PlayActionsCallbackInterface = instance;
             if (instance != null)
@@ -177,6 +202,9 @@ public class @FrogActions : IInputActionCollection, IDisposable
                 @Debug.started += instance.OnDebug;
                 @Debug.performed += instance.OnDebug;
                 @Debug.canceled += instance.OnDebug;
+                @Debug2.started += instance.OnDebug2;
+                @Debug2.performed += instance.OnDebug2;
+                @Debug2.canceled += instance.OnDebug2;
             }
         }
     }
@@ -186,5 +214,6 @@ public class @FrogActions : IInputActionCollection, IDisposable
         void OnTrajectory(InputAction.CallbackContext context);
         void OnTouchPosition(InputAction.CallbackContext context);
         void OnDebug(InputAction.CallbackContext context);
+        void OnDebug2(InputAction.CallbackContext context);
     }
 }

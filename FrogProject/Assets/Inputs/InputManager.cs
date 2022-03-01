@@ -34,6 +34,7 @@ public class InputManager : MonoBehaviour
         frogactions.Play.Trajectory.started     += DrawTrajectory;
         frogactions.Play.Trajectory.canceled    += Move;
         frogactions.Play.Debug.performed        += Debug;
+        frogactions.Play.Debug2.performed       += Debug2;
     }
 
 
@@ -49,7 +50,12 @@ public class InputManager : MonoBehaviour
 
     private void Debug(InputAction.CallbackContext context)
     {
-        GameManager._intance.currentLevel.LevelFinished();
+        //GameManager._intance.currentLevel.LevelFinished();
+        Level.OnHited();
     }
-
+    private void Debug2(InputAction.CallbackContext context)
+    {
+        //GameManager._intance.currentLevel.LevelFinished();
+        Level.OnHealed();
+    }
 }

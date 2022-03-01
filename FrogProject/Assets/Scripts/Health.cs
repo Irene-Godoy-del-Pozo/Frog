@@ -5,15 +5,29 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
-    //TODO: Asignar desde Gamemanager
+  
     int maxHealth = 5;
 
     int currentHealth;
 
     private void Start()
     {
+        maxHealth = GameManager._intance.GetMaxHealth();
         RestartHealth();
-        //TODO: Decidir si se conserva vida entre escenas
+      
+    }
+
+    private void OnEnable()
+    {
+        Level.OnHited += Damaged;
+
+        Level.OnHealed += Healed;
+    }
+    private void OnDisable()
+    {
+        Level.OnHited -= Damaged;
+
+        Level.OnHealed -= Healed;
     }
 
     void RestartHealth()
