@@ -38,8 +38,11 @@ public class Health : MonoBehaviour
 
     void Damaged()
     {
+       
         currentHealth = Mathf.Clamp(currentHealth--, 0, maxHealth);
-        //TODO: Update UI
+
+        
+        
         if (currentHealth == 0)
             Dead();
     }
@@ -47,7 +50,7 @@ public class Health : MonoBehaviour
     void Healed()
     {
         currentHealth = Mathf.Clamp(currentHealth++, 0, maxHealth);
-        //TODO: Update UI
+  
     }
 
     void Dead()

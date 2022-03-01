@@ -18,19 +18,27 @@ public class Level : MonoBehaviour
 
     public List<Flies> flies = new List<Flies>();
 
+    public List<Healer> healers = new List<Healer>();
+
     GameObject player;
     public void SetPlayer(GameObject _player) { player = _player; }
 
     public HealthUI healthUI;
 
-    public delegate void Action();
-    public static Action OnHited;
-    public static Action OnHealed;
+    public delegate void HealthAction();
+
+    public static HealthAction OnHited;
+    public static HealthAction OnHealed;
 
     private void Start()
     {
         player.transform.position = start_Position.position;
         healthUI.LevelStarted();
+
+        foreach (Healer healer in healers)
+        {
+            healer.gameObject.SetActive(true);
+        }
     }
 
     public void LevelFinished ()
