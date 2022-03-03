@@ -35,6 +35,8 @@ public class ArcMovement : MonoBehaviour
 
     public bool isGrounded;
 
+    public Vector3 respawnPosition;
+
     void Start()
     {
 
@@ -45,6 +47,10 @@ public class ArcMovement : MonoBehaviour
         //Reset the Line Renderer's points count
         ClearLinerendere(points.Count);
         isGrounded = true;
+
+        //respawnPosition = transform.position;
+
+        Respawn();
     }
 
     //Start the trajectory prediction
@@ -223,7 +229,26 @@ public class ArcMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {    
-        rb.velocity = new Vector2 (0,0);
+        if(collision.gameObject.tag.Equals("Floor"))
+        {
+            rb.velocity = new Vector2 (0,0);
+            isGrounded = true;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag.Equals("Respawn"))
+        {
+            respawnPosition = collision.gameObject.transform.position;
+
+        }
+    }
+
+    public void Respawn()
+    {
+        transform.position = respawnPosition;
+
         isGrounded = true;
     }
 }

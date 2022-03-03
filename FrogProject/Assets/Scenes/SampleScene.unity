@@ -204,7 +204,7 @@ MonoBehaviour:
   - lvl_Prefab: {fileID: 8336036030868917312, guid: c4e8816e6095d2e4ab7c91866b2ec88c, type: 3}
     lvl_Finished: 1
     lvl_Name: 
-    flies_taken: 000001
+    flies_taken: 010100
 --- !u!4 &1995205681
 Transform:
   m_ObjectHideFlags: 0

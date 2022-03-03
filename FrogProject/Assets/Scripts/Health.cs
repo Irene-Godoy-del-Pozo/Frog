@@ -42,9 +42,13 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth--, 0, maxHealth);
 
         
-        
         if (currentHealth == 0)
             Dead();
+
+
+        //Animacion de daño o muerte si corresponde
+
+      
     }
 
     void Healed()

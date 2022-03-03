@@ -32,7 +32,7 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        player.transform.position = start_Position.position;
+        player.GetComponent<ArcMovement>().respawnPosition = start_Position.position;
         healthUI.LevelStarted();
 
         foreach (Healer healer in healers)

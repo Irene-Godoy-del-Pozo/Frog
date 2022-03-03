@@ -16,6 +16,8 @@ public class Trap : MonoBehaviour
             {
                 Level.OnHited();
             }
+
+            collision.gameObject.GetComponent<ArcMovement>().Respawn();
         }
     }
 }
