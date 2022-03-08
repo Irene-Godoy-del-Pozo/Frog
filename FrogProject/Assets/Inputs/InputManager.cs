@@ -20,10 +20,20 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         frogactions.Enable();
+
+        frogactions.Play.Trajectory.started += DrawTrajectory;
+        frogactions.Play.Trajectory.canceled += Move;
+        frogactions.Play.Debug.performed += _Debug;
+        frogactions.Play.Debug2.performed += _Debug2;
     }
     private void OnDisable()
     {
         frogactions.Disable();
+
+        frogactions.Play.Trajectory.started -= DrawTrajectory;
+        frogactions.Play.Trajectory.canceled -= Move;
+        frogactions.Play.Debug.performed -= _Debug;
+        frogactions.Play.Debug2.performed -= _Debug2;
     }
 
 
@@ -31,16 +41,19 @@ public class InputManager : MonoBehaviour
     void Start()
     {
     
-        frogactions.Play.Trajectory.started     += DrawTrajectory;
-        frogactions.Play.Trajectory.canceled    += Move;
-        frogactions.Play.Debug.performed        += Debug;
-        frogactions.Play.Debug2.performed       += Debug2;
+        //frogactions.Play.Trajectory.started     += DrawTrajectory;
+        //frogactions.Play.Trajectory.canceled    += Move;
+        //frogactions.Play.Debug.performed        += Debug;
+        //frogactions.Play.Debug2.performed       += Debug2;
     }
 
 
     private void DrawTrajectory(InputAction.CallbackContext context)
     {
-        player.GetComponent<ArcMovement>().StartMovement(frogactions.Play.TouchPosition.ReadValue<Vector2>(),frogactions);
+        if (!IsUI())
+            player.GetComponent<ArcMovement>().StartMovement(frogactions.Play.TouchPosition.ReadValue<Vector2>(), frogactions);
+        else
+            Debug.Log("UI");
     }
 
     private void Move(InputAction.CallbackContext context)
@@ -48,14 +61,20 @@ public class InputManager : MonoBehaviour
         player.GetComponent<ArcMovement>().Move();
     }
 
-    private void Debug(InputAction.CallbackContext context)
+    private void _Debug(InputAction.CallbackContext context)
     {
-        //GameManager._intance.currentLevel.LevelFinished();
-        Level.OnHited();
+        GameManager._intance.currentLevel.LevelFinished();
+        //Level.OnHited();
     }
-    private void Debug2(InputAction.CallbackContext context)
+    private void _Debug2(InputAction.CallbackContext context)
     {
         //GameManager._intance.currentLevel.LevelFinished();
         Level.OnHealed();
+    }
+
+    bool IsUI()
+    {
+
+        return frogactions.Play.TouchPosition.ReadValue<Vector2>().y > (Camera.main.scaledPixelHeight - 50);
     }
 }
