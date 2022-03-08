@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         LevelInitialitation();
 
-        StartLevel(0);//TEMPORAL
+        //StartLevel(0);//TEMPORAL
     }
     
     void LevelInitialitation ()

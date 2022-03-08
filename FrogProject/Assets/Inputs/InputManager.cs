@@ -21,26 +21,26 @@ public class InputManager : MonoBehaviour
     {
         frogactions.Enable();
 
-        frogactions.Play.Trajectory.started += DrawTrajectory;
-        frogactions.Play.Trajectory.canceled += Move;
-        frogactions.Play.Debug.performed += _Debug;
-        frogactions.Play.Debug2.performed += _Debug2;
+        //frogactions.Play.Trajectory.started += DrawTrajectory;
+        //frogactions.Play.Trajectory.canceled += Move;
+        //frogactions.Play.Debug.performed += _Debug;
+        //frogactions.Play.Debug2.performed += _Debug2;
     }
     private void OnDisable()
     {
         frogactions.Disable();
 
-        frogactions.Play.Trajectory.started -= DrawTrajectory;
-        frogactions.Play.Trajectory.canceled -= Move;
-        frogactions.Play.Debug.performed -= _Debug;
-        frogactions.Play.Debug2.performed -= _Debug2;
+        //frogactions.Play.Trajectory.started -= DrawTrajectory;
+        //frogactions.Play.Trajectory.canceled -= Move;
+        //frogactions.Play.Debug.performed -= _Debug;
+        //frogactions.Play.Debug2.performed -= _Debug2;
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-    
+        
         //frogactions.Play.Trajectory.started     += DrawTrajectory;
         //frogactions.Play.Trajectory.canceled    += Move;
         //frogactions.Play.Debug.performed        += Debug;
