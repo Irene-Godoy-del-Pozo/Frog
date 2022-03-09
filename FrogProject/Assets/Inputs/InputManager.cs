@@ -40,11 +40,11 @@ public class InputManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        //frogactions.Play.Trajectory.started     += DrawTrajectory;
-        //frogactions.Play.Trajectory.canceled    += Move;
-        //frogactions.Play.Debug.performed        += Debug;
-        //frogactions.Play.Debug2.performed       += Debug2;
+
+        frogactions.Play.Trajectory.started += DrawTrajectory;
+        frogactions.Play.Trajectory.canceled += Move;
+        frogactions.Play.Debug.performed += _Debug;
+        frogactions.Play.Debug2.performed += _Debug2;
     }
 
 
