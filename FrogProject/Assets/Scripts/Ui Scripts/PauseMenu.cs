@@ -8,19 +8,20 @@ public class PauseMenu : MonoBehaviour
 
     Toggle toggle;
 
-    public SoundButton soundToggle;
-    public MusicButton musicToggle;
+    public UITweening soundToggle;
+    public UITweening musicToggle;
 
-    public UITweening test;
-    
+
+    UITweening pauseUi;
 
     private void Start()
     {
         toggle = GetComponent<Toggle>();
+        pauseUi = GetComponent<UITweening>();
 
-        //toggle.onValueChanged.AddListener(musicToggle.PauseActivate);
-        //toggle.onValueChanged.AddListener(soundToggle.PauseActivate);
+
         toggle.onValueChanged.AddListener(Move);
+        toggle.onValueChanged.AddListener(Resize);
         //toggle.onValueChanged.AddListener(PauseGame);
     }
 
@@ -38,18 +39,48 @@ public class PauseMenu : MonoBehaviour
     //dynamico con el toggle
     public void Move(bool move)
     {
+        MoveUi(move, musicToggle);
+        MoveUi(move, soundToggle);
+    }
+
+    public void Resize(bool resize)
+    {
+        ResizeUI(resize, pauseUi);
+    }
+
+ 
+    void MoveUi(bool move,UITweening uITweening)
+    {
         if (move)
         {
-            test.target_movement = test.endPosition;
-            
+            uITweening.target_movement = uITweening.endPosition;
+            uITweening.activate_begining = true;
+            uITweening.deactivate_ending = false;
         }
         else
         {
-            test.target_movement = test.startPosition;
+            uITweening.target_movement = uITweening.startPosition;
+            uITweening.deactivate_ending = true;
         }
 
-        if (!test.isrunning) StartCoroutine(test.MoveUI());
+        if (!uITweening.isrunning_movement) StartCoroutine(uITweening.MoveUI());
     }
 
+    public void ResizeUI(bool resize, UITweening uITweening)
+    {
+        if (resize)
+        {
+            uITweening.target_size = uITweening.endSize;
+
+      
+        }
+        else
+        {
+            uITweening.target_size = uITweening.startSize;
+           
+        }
+
+        if (!uITweening.isrunning_scale) StartCoroutine(uITweening.ResizeUI());
+    }
 
 }

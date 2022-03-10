@@ -90,9 +90,33 @@
             "id": "f844c9c6-6840-407e-b9d3-edc0d24da97f",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Submit",
                     "type": "Button",
-                    "id": "d613d545-1522-416d-bc5e-1e28e03c6a76",
+                    "id": "9a1646dd-3086-4455-8b33-ebea2befb284",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "bd9d2e20-bde9-47bd-ab71-fa7669461ae7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Point",
+                    "type": "PassThrough",
+                    "id": "9a20b15d-ca96-4951-bcdc-c5764efc53e9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Click",
+                    "type": "PassThrough",
+                    "id": "331c03c4-2b94-4dbd-87ea-96a0e73de1a3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -101,12 +125,67 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "3e4be06c-27b7-4912-bd00-688418bdc4ef",
-                    "path": "",
+                    "id": "9a910c0e-b8ad-4f0d-96df-78b3c93e6139",
+                    "path": "*/{Submit}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ad210d12-71ff-496b-8e2d-712052b25c8e",
+                    "path": "*/{Cancel}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23fc4551-d123-4b41-84c1-f160757cc5d3",
+                    "path": "<Pen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dbd9e1a7-2e39-4c23-9c6d-d134a3d70809",
+                    "path": "<Touchscreen>/touch*/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1fb85cd7-2dab-4f5e-a04c-cbb78d4595dc",
+                    "path": "<Pen>/tip",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34846bfb-64e8-4417-a14a-15cfde4ad217",
+                    "path": "<Touchscreen>/touch*/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

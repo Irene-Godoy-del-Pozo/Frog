@@ -22,20 +22,37 @@ public class EditorUITweening : Editor
         //Start position configuration
       
         myUI.startPosition = EditorGUILayout.Vector2Field("Start Position", myUI.startPosition);// GUILayout.Width(300));
-      
-        if (GUILayout.Button("Set start position"))
-        {
-            SetPosition(out myUI.startPosition);
-        }
 
+        EditorGUILayout.BeginHorizontal();
+
+            if (GUILayout.Button("Set start position"))
+            {
+                SetPosition(out myUI.startPosition);
+            }
+
+            if (GUILayout.Button("Move to start position"))
+            {
+                MoveTo(myUI.startPosition);
+            }
+
+        EditorGUILayout.EndHorizontal();
         //End position configuration
         myUI.endPosition = EditorGUILayout.Vector2Field("End Position", myUI.endPosition);// GUILayout.Width(300));
 
-        if (GUILayout.Button("Set end position"))
-        {
-            SetPosition(out myUI.endPosition);
-        }
+        EditorGUILayout.BeginHorizontal();
 
+            if (GUILayout.Button("Set end position"))
+            {
+                SetPosition(out myUI.endPosition);
+            }
+            if (GUILayout.Button("Move to end position"))
+            {
+                MoveTo(myUI.endPosition);
+            }
+
+        EditorGUILayout.EndHorizontal();
+
+        myUI.movement_Speed = EditorGUILayout.FloatField("Movement speed", myUI.movement_Speed);
 
         EditorGUILayout.EndToggleGroup();
 
@@ -49,18 +66,36 @@ public class EditorUITweening : Editor
 
         myUI.startSize = EditorGUILayout.Vector2Field("Start Scale", myUI.startSize);// GUILayout.Width(300));
 
-        if (GUILayout.Button("Set start size"))
-        {
-            SetScale(out myUI.startSize);
-        }
+        EditorGUILayout.BeginHorizontal();
 
+            if (GUILayout.Button("Set start size"))
+            {
+                SetSize(out myUI.startSize);
+            }
+            if (GUILayout.Button("Resize to start size"))
+            {
+                ResizeTo( myUI.startSize);
+            }
+
+        EditorGUILayout.EndHorizontal();
         //End size configuration
         myUI.endSize = EditorGUILayout.Vector2Field("End Size", myUI.endSize);// GUILayout.Width(300));
 
-        if (GUILayout.Button("Set end size"))
-        {
-            SetScale(out myUI.endSize);
-        }
+        EditorGUILayout.BeginHorizontal();
+
+            if (GUILayout.Button("Set end size"))
+            {
+                SetSize(out myUI.endSize);
+            }
+            if (GUILayout.Button("Resize to end size"))
+            {
+                ResizeTo(myUI.endSize);
+            }
+        EditorGUILayout.EndHorizontal();
+
+        myUI.resize_Speed = EditorGUILayout.FloatField("Scale speed", myUI.resize_Speed);
+
+        myUI.islooping = EditorGUILayout.Toggle("Looping from start", myUI.islooping);
 
         EditorGUILayout.EndToggleGroup();
 
@@ -68,9 +103,9 @@ public class EditorUITweening : Editor
 
      
 
-        myUI.activate_begining = EditorGUILayout.Toggle("Activate in the begining", myUI.activate_begining);
+        //myUI.activate_begining = EditorGUILayout.Toggle("Activate in the begining", myUI.activate_begining);
 
-        myUI.deactivate_ending = EditorGUILayout.Toggle("Deactivate in the end", myUI.deactivate_ending);
+        //myUI.deactivate_ending = EditorGUILayout.Toggle("Deactivate in the end", myUI.deactivate_ending);
 
         if (GUILayout.Button("debug")) 
         {
@@ -88,8 +123,18 @@ public class EditorUITweening : Editor
         position = myUI.gameObject.GetComponent<RectTransform>().position;
     }
 
-    void SetScale(out Vector2 scale)
+    void MoveTo(Vector2 position)
     {
-        scale = myUI.gameObject.GetComponent<RectTransform>().sizeDelta;
+        myUI.gameObject.GetComponent<RectTransform>().position = position;
+    }
+
+    void SetSize(out Vector2 size)
+    {
+        size = myUI.gameObject.GetComponent<RectTransform>().sizeDelta;
+    }
+
+    void ResizeTo(Vector2 size)
+    {
+        myUI.gameObject.GetComponent<RectTransform>().sizeDelta = size;
     }
 }

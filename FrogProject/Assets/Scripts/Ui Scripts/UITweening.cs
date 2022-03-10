@@ -10,7 +10,7 @@ public class UITweening : MonoBehaviour
 
     public Vector2 endPosition;
 
-    public float time_Movement = 5;
+    public float movement_Speed = 2f;
 
     public float delay_Movement=0;
 
@@ -20,40 +20,123 @@ public class UITweening : MonoBehaviour
 
     public Vector2 endSize;
 
-    public float time_Size = 1;
+    public float resize_Speed = 2f;
 
     public float delay_Size = 0;
 
-    public bool activate_begining;
+    public bool activate_begining = false;
 
-    public bool deactivate_ending;
+    public bool deactivate_ending = false;
 
-
+    private void OnEnable()
+    {
+        if(islooping)
+        {
+            target_size = endSize;
+            StartCoroutine("LoopResize");
+        }
+    }
 
     //Corutina variables
     public Vector2 target_movement;
-    public bool isrunning= false;
+    public bool isrunning_movement = false;
 
     public IEnumerator MoveUI()
     {
-        isrunning = true;
-        yield return new WaitForSeconds(delay_Movement);
+        if(!enablemovement)
+        {
+            Debug.LogError("Inorder to move this object, you need to enable movement on the inspector");
+           
+        }
+        else
+        {
+            isrunning_movement = true;
+            yield return new WaitForSeconds(delay_Movement);
         
 
-        //Check if have to activate the gameobject
-        if (activate_begining) gameObject.SetActive(true);
+            //Check if have to activate the gameobject
+            if (activate_begining) gameObject.SetActive(true);
 
 
-        while(Vector2.Distance(gameObject.GetComponent<RectTransform>().position,target_movement)>0.01)
+            while(Vector2.Distance(gameObject.GetComponent<RectTransform>().position,target_movement)>0.01)
+            {
+                gameObject.GetComponent<RectTransform>().position = Vector2.MoveTowards(gameObject.GetComponent<RectTransform>().position, target_movement,0.1f*  movement_Speed);
+                yield return null;
+            }
+
+            if (deactivate_ending) gameObject.SetActive(false);
+
+        }
+
+        isrunning_movement = false;
+    }
+
+    //Corutina variables
+    public Vector2 target_size;
+    public bool isrunning_scale = false;
+
+    public IEnumerator ResizeUI()
+    {
+        if (!enableSize)
         {
-            gameObject.GetComponent<RectTransform>().position = Vector2.MoveTowards(gameObject.GetComponent<RectTransform>().position, target_movement, time_Movement);
+            Debug.LogError("Inorder to resize this object, you need to enable Resize on the inspector");
+
+        }
+        else
+        {
+            isrunning_scale = true;
+            yield return new WaitForSeconds(delay_Size);
+
+
+            //Check if have to activate the gameobject
+            if (activate_begining) gameObject.SetActive(true);
+
+
+            while (Vector2.Distance(gameObject.GetComponent<RectTransform>().sizeDelta, target_size) > 0.01)
+            {
+                gameObject.GetComponent<RectTransform>().sizeDelta = Vector2.MoveTowards(gameObject.GetComponent<RectTransform>().sizeDelta, target_size, 0.1f * resize_Speed);
+                yield return null;
+            }
+
+            if (deactivate_ending) gameObject.SetActive(false);
+
+            isrunning_scale = false;
+        }
+    }
+
+    public bool islooping = false;
+    public void StarLoopingSize()
+    {
+        if (islooping) return;
+        islooping = true;
+        target_size = endSize;
+        StartCoroutine("LoopResize");
+    }
+    public void StopLooping()
+    {
+        if (!islooping) return;
+        islooping = false;
+        StopCoroutine("LoopResize");
+    }
+
+    IEnumerator LoopResize()
+    {
+        while (true)
+        {
+            if(Vector2.Distance(gameObject.GetComponent<RectTransform>().sizeDelta, target_size) > 0.01)
+                gameObject.GetComponent<RectTransform>().sizeDelta = Vector2.MoveTowards(gameObject.GetComponent<RectTransform>().sizeDelta, target_size, 0.1f *  resize_Speed);
+            else
+            {
+                if (target_size == startSize) target_size = endSize;
+                else target_size = startSize;
+
+            }
+
+
             yield return null;
         }
 
-        if (deactivate_ending) gameObject.SetActive(false);
-
-        isrunning = false;
+        
     }
 
- 
 }
