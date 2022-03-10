@@ -58,9 +58,9 @@ public class UITweening : MonoBehaviour
             if (activate_begining) gameObject.SetActive(true);
 
 
-            while(Vector2.Distance(gameObject.GetComponent<RectTransform>().position,target_movement)>0.01)
+            while(Vector2.Distance(gameObject.GetComponent<RectTransform>().anchoredPosition,target_movement)>0.01)
             {
-                gameObject.GetComponent<RectTransform>().position = Vector2.MoveTowards(gameObject.GetComponent<RectTransform>().position, target_movement,0.1f*  movement_Speed);
+                gameObject.GetComponent<RectTransform>().anchoredPosition = Vector2.MoveTowards(gameObject.GetComponent<RectTransform>().anchoredPosition, target_movement,0.1f*  movement_Speed);
                 yield return null;
             }
 

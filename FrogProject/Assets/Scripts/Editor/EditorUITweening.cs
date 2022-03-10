@@ -120,12 +120,15 @@ public class EditorUITweening : Editor
 
     void SetPosition(out Vector2 position)
     {
-        position = myUI.gameObject.GetComponent<RectTransform>().position;
+
+        position = myUI.gameObject.GetComponent<RectTransform>().anchoredPosition;
     }
 
     void MoveTo(Vector2 position)
     {
-        myUI.gameObject.GetComponent<RectTransform>().position = position;
+     
+        myUI.gameObject.GetComponent<RectTransform>().anchoredPosition = position;
+   
     }
 
     void SetSize(out Vector2 size)
