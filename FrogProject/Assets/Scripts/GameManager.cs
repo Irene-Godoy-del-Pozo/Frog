@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour
 
     public InputManager inputManager;
 
+    public GameObject mainMenu;
+
+    public GameObject pauseMenu;
+
+
     [System.Serializable]
     private class LevelInfo
     {
@@ -59,7 +64,7 @@ public class GameManager : MonoBehaviour
 
         LevelInitialitation();
 
-        StartLevel(0);//TEMPORAL
+       
     }
     
     void LevelInitialitation ()
@@ -164,6 +169,13 @@ public class GameManager : MonoBehaviour
     }
 
 
+
+    public void Levels()
+    {
+        mainMenu.SetActive(false);
+        pauseMenu.SetActive(true);
+        StartLevel(0);//TEMPORAL
+    }
 
 
 
