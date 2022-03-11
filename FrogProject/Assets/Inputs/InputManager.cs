@@ -50,7 +50,7 @@ public class InputManager : MonoBehaviour
 
     private void DrawTrajectory(InputAction.CallbackContext context)
     {
-        if (!IsUI())
+        if (!IsUI() && GameManager._intance.gamePaused == false)
             player.GetComponent<ArcMovement>().StartMovement(frogactions.Play.TouchPosition.ReadValue<Vector2>(), frogactions);
         else
             Debug.Log("UI");
@@ -58,7 +58,8 @@ public class InputManager : MonoBehaviour
 
     private void Move(InputAction.CallbackContext context)
     {
-        player.GetComponent<ArcMovement>().Move();
+     
+            player.GetComponent<ArcMovement>().Move();
     }
 
     private void _Debug(InputAction.CallbackContext context)

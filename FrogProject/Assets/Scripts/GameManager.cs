@@ -177,9 +177,15 @@ public class GameManager : MonoBehaviour
         StartLevel(0);//TEMPORAL
     }
 
-
-
-
+    public bool gamePaused = false;
+    public void PauseGame(bool isPaused)
+    {
+        gamePaused = isPaused;
+        if (isPaused)
+            Time.timeScale = 0;
+        else
+            Time.timeScale = 1;
+    }
 
 
 

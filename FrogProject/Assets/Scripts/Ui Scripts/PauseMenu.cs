@@ -11,7 +11,7 @@ public class PauseMenu : MonoBehaviour
     public UITweening soundToggle;
     public UITweening musicToggle;
 
-
+    
     UITweening pauseUi;
 
     private void Start()
@@ -22,19 +22,11 @@ public class PauseMenu : MonoBehaviour
 
         toggle.onValueChanged.AddListener(Move);
         toggle.onValueChanged.AddListener(Resize);
-        //toggle.onValueChanged.AddListener(PauseGame);
+        toggle.onValueChanged.AddListener(GameManager._intance.PauseGame);
     }
 
 
-    void PauseGame(bool isPaused)
-    {
-        //TODO: HACERLO FUNCION DEL GAMEMANAGER
 
-        if (isPaused)
-            Time.timeScale = 0;
-        else
-            Time.timeScale = 1;
-    }
 
     //dynamico con el toggle
     public void Move(bool move)
