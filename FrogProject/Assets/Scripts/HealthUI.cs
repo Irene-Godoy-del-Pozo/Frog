@@ -12,9 +12,12 @@ public class HealthUI : MonoBehaviour
 
     public void LevelStarted()
     {
+        float heartWidth = heartPrefab.GetComponent<RectTransform>().rect.width;
         for (int i = 0; i < GameManager._intance.GetMaxHealth(); i++)
         {
-            heartList.Add(Instantiate(heartPrefab, this.gameObject.transform));
+            heartList.Add(Instantiate(heartPrefab,transform));
+
+            heartList[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(heartWidth / 2 + (i * (heartWidth + 10)), 0 );
         }
 
         currentHearts = GameManager._intance.GetMaxHealth();
