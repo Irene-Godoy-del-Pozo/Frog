@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     public UITweening soundToggle;
     public UITweening musicToggle;
 
+   
+
     
     UITweening pauseUi;
 
@@ -19,7 +22,7 @@ public class PauseMenu : MonoBehaviour
         toggle = GetComponent<Toggle>();
         pauseUi = GetComponent<UITweening>();
 
-
+        
         toggle.onValueChanged.AddListener(Move);
         toggle.onValueChanged.AddListener(Resize);
         toggle.onValueChanged.AddListener(GameManager._intance.PauseGame);

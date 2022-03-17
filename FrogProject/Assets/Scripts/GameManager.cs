@@ -130,7 +130,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    void StartLevel(int index)
+    public void StartLevel(int index)
     {
         
         ActivateFlies(levelList[index], levelList[index].lvl_Finished);
