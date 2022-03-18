@@ -1,0 +1,109 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.4f1 (0abb6314276a) revision 703331'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19043.1586; Version 2009; 64bit' Language: 'es' Physical Memory: 16343 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.4f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+E:/Cursos y proyectos/Programming/Projects/Frog/FrogProject
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+62724
+Successfully changed project path to: E:/Cursos y proyectos/Programming/Projects/Frog/FrogProject
+E:/Cursos y proyectos/Programming/Projects/Frog/FrogProject
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 56.15 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.4f1 (0abb6314276a)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/Cursos y proyectos/Programming/Projects/Frog/FrogProject/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Vendor:   
+    VRAM:     8079 MB
+    Driver:   30.0.14.7196
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56224
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002464 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 52.98 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.046 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001334 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 62.40 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.639 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.47 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2177 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 99.7 MB.
+System memory in use after: 99.8 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2626.
+Total: 3.496400 ms (FindLiveObjects: 0.318500 ms CreateObjectMapping: 0.196400 ms MarkObjects: 2.900000 ms  DeleteObjects: 0.080200 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Materials/Frog Material.mat
+  artifactKey: Guid(343eddbb6a38c77429919f5adc4c032d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Frog Material.mat using Guid(343eddbb6a38c77429919f5adc4c032d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a337e7ba27faf8673fcc963d3ade315c') in 0.465951 seconds
+  Import took 0.469692 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Materials/grunge-circle-frame-1.png
+  artifactKey: Guid(e1aadafe0c238324b8945176b1798405) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/grunge-circle-frame-1.png using Guid(e1aadafe0c238324b8945176b1798405) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc2850735a0e29ae1611f280b68ca785') in 0.145037 seconds
+  Import took 0.148517 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.319179 seconds.
+  path: Assets/Scenes/GameManager.prefab
+  artifactKey: Guid(9bc037764df4354459dd477962580d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/GameManager.prefab using Guid(9bc037764df4354459dd477962580d9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daf5759d10859b6da9603069cdcdd300') in 0.044622 seconds
+  Import took 0.063312 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.957346 seconds.
+  path: Assets/Scenes/MainMenu.unity
+  artifactKey: Guid(bddacfae07958a14db2eddaa03e1db8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MainMenu.unity using Guid(bddacfae07958a14db2eddaa03e1db8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e13bcd9e1b9e13dc7601d17e5613c7b1') in 0.006727 seconds
+  Import took 0.010711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010941 seconds.
+  path: Assets/Scenes/MainMenu.unity
+  artifactKey: Guid(bddacfae07958a14db2eddaa03e1db8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MainMenu.unity using Guid(bddacfae07958a14db2eddaa03e1db8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e13bcd9e1b9e13dc7601d17e5613c7b1') in 0.003722 seconds
+  Import took 0.008147 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

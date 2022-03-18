@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public GameObject levelMenu;
+
 
     [System.Serializable]
     private class LevelInfo
@@ -132,7 +134,9 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel(int index)
     {
-        
+
+        levelMenu.SetActive(false);
+
         ActivateFlies(levelList[index], levelList[index].lvl_Finished);
 
         inputManager.player = Instantiate(playerPref);// ,levelList[index].lvl_Prefab.GetComponent<Level>().start_Position.position, playerPref.transform.rotation);
@@ -143,6 +147,8 @@ public class GameManager : MonoBehaviour
         currentLevel = level.GetComponent<Level>();
 
         currentLevel.SetPlayer(inputManager.player);
+
+        inputManager.gameObject.SetActive(true);
 
     }
 
@@ -169,12 +175,20 @@ public class GameManager : MonoBehaviour
     }
 
 
+    public bool[] GetFliesOfLevels(int level)
+    {
+        if (!levelList[level].lvl_Finished) return new bool[] { false, false, false };
+        return levelList[level].flies_taken.ToArray();
+    }
+
 
     public void Levels()
     {
         mainMenu.SetActive(false);
+        levelMenu.SetActive(true);
         pauseMenu.SetActive(true);
-        StartLevel(0);//TEMPORAL
+        inputManager.gameObject.SetActive(false);
+        //StartLevel(0);//TEMPORAL
     }
 
     public bool gamePaused = false;
