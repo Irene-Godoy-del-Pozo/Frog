@@ -120,14 +120,22 @@ public class GameManager : MonoBehaviour
 
                 for (int i = 0; i < level.flies.Count; i++)
                 {
-                    _levelinfo.setFlies(i, level.flies[i].gameObject.activeSelf);
+                    _levelinfo.setFlies(i, !level.flies[i].gameObject.activeSelf);
                   
                 }
-                
-                
+
+                level.gameObject.SetActive(false);
+
+                LevelsMenu();
+
+                return;
+
 
             }
         }
+
+
+
         Debug.Log("Ha llegado al final GM");
     }
 
@@ -149,6 +157,8 @@ public class GameManager : MonoBehaviour
         currentLevel.SetPlayer(inputManager.player);
 
         inputManager.gameObject.SetActive(true);
+
+
 
     }
 
@@ -182,13 +192,14 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void Levels()
+    public void LevelsMenu()
     {
+        
         mainMenu.SetActive(false);
         levelMenu.SetActive(true);
         pauseMenu.SetActive(true);
         inputManager.gameObject.SetActive(false);
-        //StartLevel(0);//TEMPORAL
+   
     }
 
     public bool gamePaused = false;

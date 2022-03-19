@@ -44,6 +44,7 @@ public class Level : MonoBehaviour
     public void LevelFinished ()
     {
         Debug.Log("Ha llegado al level");
+        Destroy(player);
         GameManager._intance.LevelFinished(this);
     }
 
