@@ -6489,7 +6489,6 @@ GameObject:
   - component: {fileID: 1885041560}
   - component: {fileID: 1885041559}
   - component: {fileID: 1885041558}
-  - component: {fileID: 1885041562}
   m_Layer: 5
   m_Name: LevelsMenu
   m_TagString: Untagged
@@ -6578,18 +6577,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1885041562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885041557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd2bb2c032975d4dbd6ef2d8abd3942, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1891492648
 GameObject:
   m_ObjectHideFlags: 0
@@ -7587,7 +7574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
       propertyPath: levelList.Array.data[0].flies_taken.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
       propertyPath: levelList.Array.data[0].flies_taken.Array.data[1]

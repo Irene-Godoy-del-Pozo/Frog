@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -30,9 +31,11 @@ public class GameManager : MonoBehaviour
     public GameObject levelMenu;
 
 
-    [System.Serializable]
+
+    [Serializable]
     private class LevelInfo
     {
+        
         public GameObject lvl_Prefab;
 
         public bool lvl_Finished;
@@ -42,14 +45,76 @@ public class GameManager : MonoBehaviour
         public string get_Name() { return lvl_Name; }
         public void set_Name(string newName) { lvl_Name = newName; }
 
-        public List<bool> flies_taken; // TODO: hacer privada
+        public bool[] flies_taken; // TODO: hacer privada
 
-        public List<bool> getFlies() { return flies_taken; }
+        public bool[] getFlies() { return flies_taken; }
         public void setFlies(int index, bool state) { flies_taken[index] = state; }
+        public void initialize() { flies_taken = new bool[3]; }
     }
     
     [SerializeField]
     List<LevelInfo> levelList = new List<LevelInfo>();
+
+    #region Save Data
+
+    [Serializable]
+    public class SaveInfo
+    {
+        public string lvl_Name;
+
+        public bool lvl_Finished;
+
+        public bool[] flies_taken;
+    }
+
+    [Serializable]
+    public class SaveInfoList
+    {
+        public List<SaveInfo> savedataList;
+    }
+    public void SaveData()
+    {
+        SaveInfoList datalist = new SaveInfoList();
+        datalist.savedataList = new List<SaveInfo>();
+        foreach (LevelInfo _levelinfo in levelList)
+        {
+            //The levels can only be finished in order. If this level isnt finished, the function can stop searching.
+            if (!_levelinfo.lvl_Finished) return;
+
+            SaveInfo data = new SaveInfo();
+
+            data.lvl_Name = _levelinfo.get_Name();
+            data.lvl_Finished = _levelinfo.lvl_Finished;
+            data.flies_taken = new bool[_levelinfo.flies_taken.Length];
+            data.flies_taken = _levelinfo.flies_taken;
+            
+            datalist.savedataList.Add(data);
+           
+
+        }
+
+       
+        if (datalist.savedataList.Count !=0)
+        {
+            string path = Path.Combine(Application.persistentDataPath, "save"+currentsave+".json");
+            //if(curren)
+            Debug.Log(JsonUtility.ToJson(datalist));
+           
+            File.WriteAllText(path, JsonUtility.ToJson(datalist, true));
+        }
+    }
+    /*
+    1- Si no hay archivo, creamos uno (desde el numero 0)
+    2- Averiguamos cual es el ultimo archivo que se modifico
+    3- Averiguamos que numero corresponde y lo añadimos a current level
+
+
+    */
+    int maxSaves = 6;
+    int currentsave = 0;
+
+
+    #endregion
 
 
     private void Awake()
@@ -78,6 +143,8 @@ public class GameManager : MonoBehaviour
             _levelinfo.set_Name(_levelinfo.lvl_Prefab.name + "(Clone)");
 
             Level a = _levelinfo.lvl_Prefab.GetComponent<Level>();
+
+            _levelinfo.initialize();
             //TODO: CARGAR DEL ARCHIVO DE GUARDADO LAS FLIES TAKEN Y TODOS LOS DATOS DE CADA NIVEL GUARDADOS
 
             ////Only check the flies taken if the player has completed the level
@@ -128,15 +195,19 @@ public class GameManager : MonoBehaviour
 
                 LevelsMenu();
 
-                return;
+                
+
+                break;
 
 
             }
+            Debug.Log("a");
         }
 
+        SaveData();
 
-
-        Debug.Log("Ha llegado al final GM");
+        Debug.Log(Application.persistentDataPath);
+   
     }
 
 
@@ -169,7 +240,7 @@ public class GameManager : MonoBehaviour
         //Set Active according to information stored in level info
         if(isPassed)
         {
-            for (int i = 0; i < levelInfo.getFlies().Count; i++)
+            for (int i = 0; i < levelInfo.getFlies().Length; i++)
             {
                 level.flies[i].gameObject.SetActive(levelInfo.getFlies()[i]);
             }
@@ -188,7 +259,7 @@ public class GameManager : MonoBehaviour
     public bool[] GetFliesOfLevels(int level)
     {
         if (!levelList[level].lvl_Finished) return new bool[] { false, false, false };
-        return levelList[level].flies_taken.ToArray();
+        return levelList[level].getFlies();//.ToArray();
     }
 
 
