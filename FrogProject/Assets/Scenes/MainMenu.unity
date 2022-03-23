@@ -7569,8 +7569,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1885041557}
     - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
+      propertyPath: levelList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
+      propertyPath: levelList.Array.data[1].lvl_Prefab
+      value: 
+      objectReference: {fileID: 8336036030868917312, guid: c4e8816e6095d2e4ab7c91866b2ec88c, type: 3}
+    - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
       propertyPath: levelList.Array.data[0].lvl_Finished
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
+      propertyPath: levelList.Array.data[1].lvl_Finished
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
       propertyPath: levelList.Array.data[0].flies_taken.Array.size

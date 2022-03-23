@@ -41,7 +41,8 @@ public class GameManager : MonoBehaviour
 
         public bool lvl_Finished;
 
-        public string lvl_Name; // TODO: hacer privada
+        
+        string lvl_Name;
 
         public string get_Name() { return lvl_Name; }
         public void set_Name(string newName) { lvl_Name = newName; }
@@ -61,8 +62,7 @@ public class GameManager : MonoBehaviour
     [Serializable]
     public class SaveInfo
     {
-        public string lvl_Name;
-
+       
         public bool lvl_Finished;
 
         public bool[] flies_taken;
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
             SaveInfo data = new SaveInfo();
 
-            data.lvl_Name = _levelinfo.get_Name();
+           
             data.lvl_Finished = _levelinfo.lvl_Finished;
             data.flies_taken = new bool[_levelinfo.flies_taken.Length];
             data.flies_taken = _levelinfo.flies_taken;
@@ -109,13 +109,7 @@ public class GameManager : MonoBehaviour
             File.WriteAllText(path, JsonUtility.ToJson(datalist, true));
         }
     }
-    /*
-    1- Si no hay archivo, creamos uno (desde el numero 0) DONE
-    2- Averiguamos cual es el ultimo archivo que se modifico
-    3- Averiguamos que numero corresponde y lo añadimos a current save
 
-
-    */
     int maxSaves = 9;
     int currentsave = 0;
 
@@ -132,17 +126,14 @@ public class GameManager : MonoBehaviour
             FileInfo lastFile = dir.GetFiles("save?.json").OrderByDescending(f => f.LastWriteTime).First(f => Char.IsDigit(f.Name,4));
 
             
-            //------FUNCIONA SOLO UN ARCHIVO
-            //string[] a = Directory.GetFiles(Application.persistentDataPath, "save?.json");
+           
             string data = File.ReadAllText(lastFile.FullName);
             Debug.Log(lastFile.FullName);
             Debug.Log(data);
             datalist = JsonUtility.FromJson<SaveInfoList>(data);
 
-            levelList[0].set_Name(datalist.savedataList[0].lvl_Name);
-            levelList[0].lvl_Finished = datalist.savedataList[0].lvl_Finished;
-            levelList[0].initialize();
-            levelList[0].flies_taken = datalist.savedataList[0].flies_taken;
+            
+            LoadedLevelInitialitation(datalist.savedataList);
 
             currentsave = (int)Char.GetNumericValue(lastFile.Name, 4);
             Debug.Log(currentsave);
@@ -152,10 +143,25 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogException(e);
             Debug.Log("erroe!");
-            LevelInitialitation();
+            LevelInitialitation(0);
         }
     }
 
+    //Initialize the levels from the level data
+    void LoadedLevelInitialitation (List<SaveInfo> datalist)
+    {
+        int i = 0;
+        for (; i < datalist.Count; i++)
+        {
+            levelList[i].set_Name(levelList[i].lvl_Prefab.name + "(Clone)");
+            levelList[i].lvl_Finished = datalist[i].lvl_Finished;
+            levelList[i].initialize();
+            levelList[i].flies_taken = datalist[i].flies_taken;
+        }
+        if (i >= levelList.Count) return;
+
+        LevelInitialitation(i);
+    }
     #endregion
 
 
@@ -177,16 +183,23 @@ public class GameManager : MonoBehaviour
        
     }
     
-    void LevelInitialitation ()
+    //Initialize the levels to default state
+    void LevelInitialitation (int index)
     {      
-        foreach (LevelInfo _levelinfo in levelList)
-        {
-            //Add Clone to the name for easiest comparations in the future
-            _levelinfo.set_Name(_levelinfo.lvl_Prefab.name + "(Clone)");
+        //foreach (LevelInfo _levelinfo in levelList)
+        //{
+        //    //Add Clone to the name for easiest comparations in the future
+        //    _levelinfo.set_Name(_levelinfo.lvl_Prefab.name + "(Clone)");
 
-            _levelinfo.initialize();
+        //    _levelinfo.initialize();
            
-        }      
+        //}
+        for (; index < levelList.Count; index++)
+        {
+            levelList[index].set_Name(levelList[index].lvl_Prefab.name + "(Clone)");
+            levelList[index].lvl_Finished = false;
+            levelList[index].initialize();
+        }
     }
 
   
