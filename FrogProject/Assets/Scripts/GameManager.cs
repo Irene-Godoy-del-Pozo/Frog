@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -97,41 +98,62 @@ public class GameManager : MonoBehaviour
         if (datalist.savedataList.Count !=0)
         {
             string path = Path.Combine(Application.persistentDataPath, "save"+currentsave+".json");
-            //if(curren)
+
+            if (currentsave >= maxSaves)
+                currentsave = 0;
+            else
+                currentsave++;
+
             Debug.Log(JsonUtility.ToJson(datalist));
            
             File.WriteAllText(path, JsonUtility.ToJson(datalist, true));
         }
     }
     /*
-    1- Si no hay archivo, creamos uno (desde el numero 0)
+    1- Si no hay archivo, creamos uno (desde el numero 0) DONE
     2- Averiguamos cual es el ultimo archivo que se modifico
-    3- Averiguamos que numero corresponde y lo añadimos a current level
+    3- Averiguamos que numero corresponde y lo añadimos a current save
 
 
     */
-    int maxSaves = 6;
+    int maxSaves = 9;
     int currentsave = 0;
 
     void LoadSave()
     {
         SaveInfoList datalist = new SaveInfoList();
         datalist.savedataList = new List<SaveInfo>();
-        //string[] a = Directory.GetFiles(Application.persistentDataPath, "save?.json");
-        //Debug.Log(a[0]);
 
-        //File.GetLastWriteTime(Application.persistentDataPath);
+        try
+        {
+            DirectoryInfo dir = new DirectoryInfo(Application.persistentDataPath);
+            
+            //search the file that have the lastest write time. Also make sure that de char occupied in ? is an digit
+            FileInfo lastFile = dir.GetFiles("save?.json").OrderByDescending(f => f.LastWriteTime).First(f => Char.IsDigit(f.Name,4));
 
-        // string data = File.ReadAllText()
+            
+            //------FUNCIONA SOLO UN ARCHIVO
+            //string[] a = Directory.GetFiles(Application.persistentDataPath, "save?.json");
+            string data = File.ReadAllText(lastFile.FullName);
+            Debug.Log(lastFile.FullName);
+            Debug.Log(data);
+            datalist = JsonUtility.FromJson<SaveInfoList>(data);
 
-        string data = File.ReadAllText(Path.Combine(Application.persistentDataPath, "save0.json"));
-        Debug.Log(data);
-        datalist = JsonUtility.FromJson<SaveInfoList>(data);
+            levelList[0].set_Name(datalist.savedataList[0].lvl_Name);
+            levelList[0].lvl_Finished = datalist.savedataList[0].lvl_Finished;
+            levelList[0].initialize();
+            levelList[0].flies_taken = datalist.savedataList[0].flies_taken;
 
-        levelList[0].set_Name(datalist.savedataList[0].lvl_Name);
-        levelList[0].lvl_Finished = datalist.savedataList[0].lvl_Finished;
-        levelList[0].initialize();
-        levelList[0].flies_taken = datalist.savedataList[0].flies_taken;
+            currentsave = (int)Char.GetNumericValue(lastFile.Name, 4);
+            Debug.Log(currentsave);
+
+        }
+        catch(Exception e)
+        {
+            Debug.LogException(e);
+            Debug.Log("erroe!");
+            LevelInitialitation();
+        }
     }
 
     #endregion
@@ -156,35 +178,15 @@ public class GameManager : MonoBehaviour
     }
     
     void LevelInitialitation ()
-    {
-        
+    {      
         foreach (LevelInfo _levelinfo in levelList)
         {
             //Add Clone to the name for easiest comparations in the future
             _levelinfo.set_Name(_levelinfo.lvl_Prefab.name + "(Clone)");
 
-            Level a = _levelinfo.lvl_Prefab.GetComponent<Level>();
-
             _levelinfo.initialize();
-
-            LoadSave();
-
-            //TODO: CARGAR DEL ARCHIVO DE GUARDADO LAS FLIES TAKEN Y TODOS LOS DATOS DE CADA NIVEL GUARDADOS
-
-            ////Only check the flies taken if the player has completed the level
-            //if (_levelinfo.lvl_Finished)
-            //{
-            //    //Level level = _levelinfo.lvl_Prefab.GetComponent<Level>();
-
-            //    //Activate/Deactivate flie's gameObjects 
-            //    ActivateFlies(_levelinfo);//_levelinfo.getFlies(),level.flies);
-
-            //}
-
-
-
-        }
-      
+           
+        }      
     }
 
   
