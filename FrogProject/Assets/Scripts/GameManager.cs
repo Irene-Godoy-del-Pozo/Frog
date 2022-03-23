@@ -113,6 +113,26 @@ public class GameManager : MonoBehaviour
     int maxSaves = 6;
     int currentsave = 0;
 
+    void LoadSave()
+    {
+        SaveInfoList datalist = new SaveInfoList();
+        datalist.savedataList = new List<SaveInfo>();
+        //string[] a = Directory.GetFiles(Application.persistentDataPath, "save?.json");
+        //Debug.Log(a[0]);
+
+        //File.GetLastWriteTime(Application.persistentDataPath);
+
+        // string data = File.ReadAllText()
+
+        string data = File.ReadAllText(Path.Combine(Application.persistentDataPath, "save0.json"));
+        Debug.Log(data);
+        datalist = JsonUtility.FromJson<SaveInfoList>(data);
+
+        levelList[0].set_Name(datalist.savedataList[0].lvl_Name);
+        levelList[0].lvl_Finished = datalist.savedataList[0].lvl_Finished;
+        levelList[0].initialize();
+        levelList[0].flies_taken = datalist.savedataList[0].flies_taken;
+    }
 
     #endregion
 
@@ -128,8 +148,9 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(transform.gameObject);
 
+        LoadSave();
 
-        LevelInitialitation();
+        //LevelInitialitation();
 
        
     }
@@ -145,6 +166,9 @@ public class GameManager : MonoBehaviour
             Level a = _levelinfo.lvl_Prefab.GetComponent<Level>();
 
             _levelinfo.initialize();
+
+            LoadSave();
+
             //TODO: CARGAR DEL ARCHIVO DE GUARDADO LAS FLIES TAKEN Y TODOS LOS DATOS DE CADA NIVEL GUARDADOS
 
             ////Only check the flies taken if the player has completed the level
