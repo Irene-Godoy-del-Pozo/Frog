@@ -45,18 +45,17 @@ public class ArcMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         //Reset the Line Renderer's points count
-        ClearLinerendere(points.Count);
+        ClearLineRenderer(points.Count);
         isGrounded = true;
 
-        //respawnPosition = transform.position;
-
+        
         Respawn();
     }
 
-    //Start the trajectory prediction
-    public void StartMovement(Vector2 start , FrogActions frogInput)
+    
+    public void StartTrajectoryPrediction(Vector2 start , FrogActions frogInput)
     {
-        if (!isGrounded) return;
+        if (!isGrounded) return; //Cant predict in the air
 
         startTouchPosition = Camera.main.ScreenToWorldPoint(start);
 
@@ -72,12 +71,13 @@ public class ArcMovement : MonoBehaviour
         //Cant move in air
         if (!isGrounded || startTouchPosition == Vector2.zero) return; 
 
-        ClearLinerendere(defaultPointsCount);
+        ClearLineRenderer(defaultPointsCount);
 
         StopCoroutine(lineTrajectory);
 
         rb.velocity = new Vector2(direction.x * initial_velocity, direction.y * initial_velocity);
 
+        //Set to Vector2.zero the startTouchPosition to fix the bug where you could move in air
         startTouchPosition = Vector2.zero;
         isGrounded = false;
        
@@ -204,7 +204,7 @@ public class ArcMovement : MonoBehaviour
     /// <param name="points"></param>
     private void DrawParabolic()
     {
-        ClearLinerendere(points.Count);
+        ClearLineRenderer(points.Count);
        
         line_renderer.SetPosition(0, transform.position + direction);
 
@@ -217,7 +217,7 @@ public class ArcMovement : MonoBehaviour
     #endregion
 
 
-    private void ClearLinerendere(int totalpositions)
+    private void ClearLineRenderer(int totalpositions)
     {
         line_renderer.positionCount = 0;
         line_renderer.positionCount = totalpositions;
@@ -235,6 +235,8 @@ public class ArcMovement : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
 

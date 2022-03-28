@@ -6,9 +6,6 @@ public class Patrolling : MonoBehaviour
 {
     /*TODO:   
     * ruta de patrulla
-    * poder pausar la ruta de patrulla en pausa
-    * 
-    * 
     * */
 
     public List<Transform> wayPoints = new List<Transform>();
@@ -16,20 +13,17 @@ public class Patrolling : MonoBehaviour
     int nextPosition;
 
     public float speed;
-
+  
+    public bool circular; //The tramp go from the last point to the first
     
-    public bool circular;
-    
-    //public bool canReturn;
-
-    public Transform trap;
+    public Transform tramp;
 
     bool isreturning;
 
     // Start is called before the first frame update
     void Start()
     {
-        trap.position = wayPoints[0].position;
+        tramp.position = wayPoints[0].position;
         nextPosition = 1;
         isreturning = false;
 
@@ -41,11 +35,12 @@ public class Patrolling : MonoBehaviour
     {
         while(true)
         {
-            if(Vector3.Distance(trap.position, wayPoints[nextPosition].position) > 0.01f)
-                trap.position = Vector3.MoveTowards(trap.position, wayPoints[nextPosition].position, speed * Time.deltaTime);
+            //Move the object to the next point
+            if(Vector3.Distance(tramp.position, wayPoints[nextPosition].position) > 0.01f)
+                tramp.position = Vector3.MoveTowards(tramp.position, wayPoints[nextPosition].position, speed * Time.deltaTime);
             else
             {
-                Debug.Log("Ha llegado");
+                //Check if the next position was the last waypoint
                 if(nextPosition >= wayPoints.Count-1)
                 {
                     if (circular)
@@ -57,7 +52,7 @@ public class Patrolling : MonoBehaviour
                     }
 
                 }
-                else if (nextPosition <= 0 && !circular)//Aqui solo entraremos si estamos returneando
+                else if (nextPosition <= 0 && !circular)//Check if is a returning patrol
                 {                
                     isreturning = false;
                     nextPosition++;
@@ -69,14 +64,11 @@ public class Patrolling : MonoBehaviour
                         nextPosition--;
                     else
                     {
-                        Debug.Log(" ++");
-                        nextPosition++;
+                       nextPosition++;
                     }
                 }
 
             }
-
-            Debug.Log(nextPosition);
 
             yield return null;
 

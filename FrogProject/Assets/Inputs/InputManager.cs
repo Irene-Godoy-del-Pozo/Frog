@@ -51,7 +51,7 @@ public class InputManager : MonoBehaviour
     private void DrawTrajectory(InputAction.CallbackContext context)
     {
         if (!IsUI() && GameManager._intance.gamePaused == false)
-            player.GetComponent<ArcMovement>().StartMovement(frogactions.Play.TouchPosition.ReadValue<Vector2>(), frogactions);
+            player.GetComponent<ArcMovement>().StartTrajectoryPrediction(frogactions.Play.TouchPosition.ReadValue<Vector2>(), frogactions);
         else
             Debug.Log("UI");
     }
@@ -76,6 +76,6 @@ public class InputManager : MonoBehaviour
     bool IsUI()
     {
 
-        return frogactions.Play.TouchPosition.ReadValue<Vector2>().y > (Camera.main.scaledPixelHeight - 50);
+        return frogactions.Play.TouchPosition.ReadValue<Vector2>().y > (Camera.main.scaledPixelHeight - 100);
     }
 }

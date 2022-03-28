@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Healer : MonoBehaviour
 {
-    //TODO: hacer como las moscas
 
     public int healQuantity;
 

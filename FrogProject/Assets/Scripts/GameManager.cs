@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
         foreach (LevelInfo _levelinfo in levelList)
         {
             //The levels can only be finished in order. If this level isnt finished, the function can stop searching.
-            if (!_levelinfo.lvl_Finished) return;
+            if (!_levelinfo.lvl_Finished) break;
 
             SaveInfo data = new SaveInfo();
 
@@ -175,7 +175,8 @@ public class GameManager : MonoBehaviour
         _intance = this;
 
         DontDestroyOnLoad(transform.gameObject);
-
+        inputManager.player = Instantiate(playerPref);
+        inputManager.player.SetActive(false);
         LoadSave();
 
         //LevelInitialitation();
@@ -231,22 +232,35 @@ public class GameManager : MonoBehaviour
                 }
 
                 level.gameObject.SetActive(false);
-
+                Destroy(level.gameObject);
+                inputManager.player.SetActive(false);
                 LevelsMenu();
-
+               
                 
 
                 break;
 
 
             }
-            Debug.Log("a");
+            
         }
 
         SaveData();
 
         Debug.Log(Application.persistentDataPath);
    
+    }
+
+    public void BackToLevelsMenu()
+    {
+        if(currentLevel)
+        {
+            currentLevel.gameObject.SetActive(false);
+            Destroy(currentLevel.gameObject);
+            inputManager.player.SetActive(false);
+            PauseMenu.SetValuePauseToggle(false);
+            LevelsMenu();
+        }
     }
 
 
@@ -257,7 +271,7 @@ public class GameManager : MonoBehaviour
 
         ActivateFlies(levelList[index], levelList[index].lvl_Finished);
 
-        inputManager.player = Instantiate(playerPref);// ,levelList[index].lvl_Prefab.GetComponent<Level>().start_Position.position, playerPref.transform.rotation);
+        /*inputManager.player = Instantiate(playerPref);*/// ,levelList[index].lvl_Prefab.GetComponent<Level>().start_Position.position, playerPref.transform.rotation);
         GameObject level = Instantiate(levelList[index].lvl_Prefab);
 
         
@@ -281,7 +295,7 @@ public class GameManager : MonoBehaviour
         {
             for (int i = 0; i < levelInfo.getFlies().Length; i++)
             {
-                level.flies[i].gameObject.SetActive(levelInfo.getFlies()[i]);
+                level.flies[i].gameObject.SetActive(!levelInfo.getFlies()[i]);
             }
         }
         //Set active true 

@@ -19,19 +19,6 @@ public class SoundButton : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    //Listener to Onvaluechanged of PauseMenu toggle. Play an animation given a bool
-    public void PauseActivate(bool gamePaused)
-    {
-        if (gamePaused)
-        {
-            gameObject.SetActive(true);
-            gameObject.GetComponent<Animator>().Play("SoundEnable");
-        }
-        else
-            gameObject.GetComponent<Animator>().Play("SoundDisable");
-    }
-
-
     //Listener to this gameObject toggle. Turns on ans off the sound
     public void Sound_On_Off(bool soundOn)
     {

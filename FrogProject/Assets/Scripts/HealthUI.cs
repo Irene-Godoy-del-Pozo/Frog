@@ -13,6 +13,8 @@ public class HealthUI : MonoBehaviour
     public void LevelStarted()
     {
         float heartWidth = heartPrefab.GetComponent<RectTransform>().rect.width;
+
+        //Create the maximum hearts
         for (int i = 0; i < GameManager._intance.GetMaxHealth(); i++)
         {
             heartList.Add(Instantiate(heartPrefab,transform));
@@ -44,6 +46,7 @@ public class HealthUI : MonoBehaviour
             heartList[currentHearts - 1].SetActive(false);
             currentHearts--;
         }
+        //Dead function
     }
 
     void Healed()

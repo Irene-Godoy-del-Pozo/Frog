@@ -21,10 +21,15 @@ public class Level : MonoBehaviour
     public List<Healer> healers = new List<Healer>();
 
     GameObject player;
-    public void SetPlayer(GameObject _player) { player = _player; }
+    public void SetPlayer(GameObject _player) 
+    {
+        player = _player; 
+        player.GetComponent<ArcMovement>().respawnPosition = start_Position.position; 
+    }
 
     public HealthUI healthUI;
 
+    
     public delegate void HealthAction();
 
     public static HealthAction OnHited;
@@ -32,9 +37,9 @@ public class Level : MonoBehaviour
 
     private void Start()
     {
-        player.GetComponent<ArcMovement>().respawnPosition = start_Position.position;
+        
         healthUI.LevelStarted();
-
+        player.SetActive(true);
         foreach (Healer healer in healers)
         {
             healer.gameObject.SetActive(true);
@@ -43,20 +48,8 @@ public class Level : MonoBehaviour
 
     public void LevelFinished ()
     {
-        Debug.Log("Ha llegado al level");
-        Destroy(player);
         GameManager._intance.LevelFinished(this);
     }
-
-    
-
-
-
-
-
-
-
-
 
 
 }

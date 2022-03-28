@@ -7,15 +7,17 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
 
-    Toggle toggle;
+    static Toggle toggle;
 
     public UITweening soundToggle;
     public UITweening musicToggle;
-
+    public UITweening backToggle;
    
 
     
     UITweening pauseUi;
+    
+    
 
     private void Start()
     {
@@ -28,7 +30,10 @@ public class PauseMenu : MonoBehaviour
         toggle.onValueChanged.AddListener(GameManager._intance.PauseGame);
     }
 
-
+    public static void SetValuePauseToggle(bool value)
+    {
+        toggle.isOn = value;
+    }
 
 
     //dynamico con el toggle
@@ -36,6 +41,7 @@ public class PauseMenu : MonoBehaviour
     {
         MoveUi(move, musicToggle);
         MoveUi(move, soundToggle);
+        MoveUi(move, backToggle);
     }
 
     public void Resize(bool resize)

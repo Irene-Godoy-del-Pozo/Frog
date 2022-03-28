@@ -5,7 +5,6 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
 
-
     public int damage;
 
     private void OnCollisionEnter2D(Collision2D collision)
