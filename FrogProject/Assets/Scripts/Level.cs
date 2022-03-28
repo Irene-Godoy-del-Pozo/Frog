@@ -4,35 +4,29 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    //[SerializeField]
-    //int maxFlies;
-
-    //public int GetMaxFlies() { return maxFlies; }
-
-    //int fliesTaken = 0;
-
-    //bool finished = false;
-
+    
     [SerializeField]
     public Transform start_Position;
 
-    public List<Flies> flies = new List<Flies>();
+    public List<Flies> flies = new List<Flies>();       //Flies of the level
 
-    public List<Healer> healers = new List<Healer>();
+    public List<Healer> healers = new List<Healer>();   //Heal Objects of the level
 
     GameObject player;
+
     public void SetPlayer(GameObject _player) 
     {
         player = _player; 
-        player.GetComponent<ArcMovement>().respawnPosition = start_Position.position; 
+        player.GetComponent<ArcMovement>().respawnPosition = start_Position.position;
+        player.GetComponent<Health>().RestartHealth();
     }
 
-    public HealthUI healthUI;
+    public HealthUI healthUI;   //Health HUD
 
     
     public delegate void HealthAction();
 
-    public static HealthAction OnHited;
+    public static HealthAction OnHited; 
     public static HealthAction OnHealed;
 
     private void Start()

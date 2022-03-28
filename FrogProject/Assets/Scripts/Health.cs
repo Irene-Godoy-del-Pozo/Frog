@@ -30,21 +30,18 @@ public class Health : MonoBehaviour
         Level.OnHealed -= Healed;
     }
 
-    void RestartHealth()
+    public void RestartHealth()
     {
         currentHealth = GameManager._intance.GetMaxHealth();
         Debug.Log("HealthMax: " + currentHealth);
     }
 
     void Damaged()
-    {
-       
+    {       
         currentHealth = Mathf.Clamp(currentHealth--, 0, maxHealth);
-
         
         if (currentHealth == 0)
             Dead();
-
     }
 
 

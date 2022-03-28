@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Patrolling : MonoBehaviour
 {
-    /*TODO:   
-    * ruta de patrulla
-    * */
+
 
     public List<Transform> wayPoints = new List<Transform>();
 

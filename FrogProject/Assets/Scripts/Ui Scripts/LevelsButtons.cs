@@ -16,13 +16,9 @@ public class LevelsButtons : MonoBehaviour
 
     private void OnEnable()
     {
-        //Llamamos a una funcion que de un bool
-
-        
-
+        //Change the sprite of the taken level's flies 
         bool[] gmflies = GameManager._intance.GetFliesOfLevels(level);
 
-        //TODO: Hay que cambiar el sprite no desaparecerlo
         for (int i = 0; i < flies.Length; i++)
         {
             if(gmflies[i])

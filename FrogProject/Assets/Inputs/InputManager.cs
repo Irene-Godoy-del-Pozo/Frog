@@ -13,34 +13,22 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        frogactions = new FrogActions();
-
-   
+        frogactions = new FrogActions(); 
     }
     private void OnEnable()
     {
         frogactions.Enable();
-
-        //frogactions.Play.Trajectory.started += DrawTrajectory;
-        //frogactions.Play.Trajectory.canceled += Move;
-        //frogactions.Play.Debug.performed += _Debug;
-        //frogactions.Play.Debug2.performed += _Debug2;
     }
     private void OnDisable()
     {
         frogactions.Disable();
-
-        //frogactions.Play.Trajectory.started -= DrawTrajectory;
-        //frogactions.Play.Trajectory.canceled -= Move;
-        //frogactions.Play.Debug.performed -= _Debug;
-        //frogactions.Play.Debug2.performed -= _Debug2;
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
         frogactions.Play.Trajectory.started += DrawTrajectory;
         frogactions.Play.Trajectory.canceled += Move;
         frogactions.Play.Debug.performed += _Debug;
@@ -58,24 +46,23 @@ public class InputManager : MonoBehaviour
 
     private void Move(InputAction.CallbackContext context)
     {
-     
-            player.GetComponent<ArcMovement>().Move();
+        player.GetComponent<ArcMovement>().Move();
     }
 
+    //Debug function 1
     private void _Debug(InputAction.CallbackContext context)
     {
         GameManager._intance.currentLevel.LevelFinished();
-        //Level.OnHited();
     }
+    //Debug function 2
     private void _Debug2(InputAction.CallbackContext context)
     {
-        //GameManager._intance.currentLevel.LevelFinished();
         Level.OnHealed();
     }
 
+    //Checks if the touch of the screen es valid or is the UI
     bool IsUI()
     {
-
         return frogactions.Play.TouchPosition.ReadValue<Vector2>().y > (Camera.main.scaledPixelHeight - 100);
     }
 }

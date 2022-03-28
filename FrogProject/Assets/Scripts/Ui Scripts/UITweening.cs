@@ -79,7 +79,7 @@ public class UITweening : MonoBehaviour
     {
         if (!enableSize)
         {
-            Debug.LogError("Inorder to resize this object, you need to enable Resize on the inspector");
+            Debug.LogError("In order to resize this object, you need to enable Resize on the inspector");
 
         }
         else

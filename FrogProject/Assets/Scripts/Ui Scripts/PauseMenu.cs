@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//using UnityEngine.UIElements;
+
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,13 +12,10 @@ public class PauseMenu : MonoBehaviour
     public UITweening soundToggle;
     public UITweening musicToggle;
     public UITweening backToggle;
-   
-
-    
+     
     UITweening pauseUi;
     
     
-
     private void Start()
     {
         toggle = GetComponent<Toggle>();
@@ -36,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    //dynamico con el toggle
+    //dynamic function to move the ui
     public void Move(bool move)
     {
         MoveUi(move, musicToggle);
@@ -44,6 +41,8 @@ public class PauseMenu : MonoBehaviour
         MoveUi(move, backToggle);
     }
 
+
+    //dynamic function to resize the ui
     public void Resize(bool resize)
     {
         ResizeUI(resize, pauseUi);
@@ -52,6 +51,7 @@ public class PauseMenu : MonoBehaviour
  
     void MoveUi(bool move,UITweening uITweening)
     {
+        //Settup options for the movement
         if (move)
         {
             uITweening.target_movement = uITweening.endPosition;
@@ -64,23 +64,24 @@ public class PauseMenu : MonoBehaviour
             uITweening.deactivate_ending = true;
         }
 
+        //Avoid call the corutine if is running
         if (!uITweening.isrunning_movement) StartCoroutine(uITweening.MoveUI());
     }
 
     public void ResizeUI(bool resize, UITweening uITweening)
     {
+        //Settup options for the resize
         if (resize)
         {
             uITweening.target_size = uITweening.endSize;
-
-      
+    
         }
         else
         {
             uITweening.target_size = uITweening.startSize;
            
         }
-
+        //Avoid call the corutine if is running
         if (!uITweening.isrunning_scale) StartCoroutine(uITweening.ResizeUI());
     }
 
