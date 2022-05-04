@@ -29,6 +29,8 @@ public class LevelsButtons : MonoBehaviour
         }
     }
 
+    
+
     public void GoToLevel()
     {
         GameManager._intance.StartLevel(level);

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c0dfe241f68d3479df236bac658aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel_multiplier: 1
+  vel_multiplier: 1.5
   timeStep: 0.1
   defaultPointsCount: 50
   maxHeight: 10
@@ -154,6 +154,7 @@ MonoBehaviour:
   maxAngle: 135
   minAngle: 45
   isGrounded: 0
+  respawnPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8976258146146037617
 MonoBehaviour:
   m_ObjectHideFlags: 0

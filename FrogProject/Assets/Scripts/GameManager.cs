@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -29,152 +27,11 @@ public class GameManager : MonoBehaviour
 
     public bool gamePaused = false;
 
-    [Serializable]
-    private class LevelInfo             //Relevant Information about the level
-    {
-        //Prefab
-        public GameObject lvl_Prefab;
-
-        //State of the level (Finished/Unfinished)
-        public bool lvl_Finished;
-        
-        //Level Name
-        string lvl_Name;
-        public string get_Name() { return lvl_Name; }
-        public void set_Name(string newName) { lvl_Name = newName; }
-
-        //Array of level flies's state (Taken/Not taken)
-        public bool[] flies_taken;
-
-        public bool[] getFlies() { return flies_taken; }
-        public void setFlies(int index, bool state) { flies_taken[index] = state; }
-        public void initialize() { flies_taken = new bool[3]; }
-    }
-    
+     
     [SerializeField]
-    List<LevelInfo> levelList = new List<LevelInfo>();  //Levels List
+    public List<LevelInfo> levelList = new List<LevelInfo>();  //Levels List
 
-
-    #region Save Data
-
-    [Serializable]
-    public class SaveInfo
-    {      
-        public bool lvl_Finished;
-
-        public bool[] flies_taken;
-    }
-
-    [Serializable]
-    public class SaveInfoList
-    {
-        public List<SaveInfo> savedataList;
-    }
-
-    int maxSaves = 9;       //Limit of files created as saves
-    int currentsave = 0;    //Next file that is going to be created o modified 
-
-    public void SaveData()
-    {
-        SaveInfoList datalist = new SaveInfoList();
-        datalist.savedataList = new List<SaveInfo>();
-
-        //Save the level state and the flies taken of each level into a SafeInfo variable
-        foreach (LevelInfo _levelinfo in levelList)
-        {
-            //The levels can only be finished in order. If this level isnt finished, the function can stop searching.
-            if (!_levelinfo.lvl_Finished) break;
-
-            SaveInfo data = new SaveInfo();
-
-           
-            data.lvl_Finished = _levelinfo.lvl_Finished;
-            data.flies_taken = new bool[_levelinfo.flies_taken.Length];
-            data.flies_taken = _levelinfo.flies_taken;
-            
-            datalist.savedataList.Add(data);
-           
-
-        }
-
-        //If the list is not empty , its converted to json and saved 
-        if (datalist.savedataList.Count !=0)
-        {
-            string path = Path.Combine(Application.persistentDataPath, "save"+currentsave+".json");
-
-            if (currentsave >= maxSaves)
-                currentsave = 0;
-            else
-                currentsave++;
-
-            Debug.Log(JsonUtility.ToJson(datalist));
-           
-            File.WriteAllText(path, JsonUtility.ToJson(datalist, true));
-        }
-    }
-
-
-
-    void LoadSave()
-    {
-        SaveInfoList datalist = new SaveInfoList();
-        datalist.savedataList = new List<SaveInfo>();
-
-        try
-        {
-            
-            DirectoryInfo dir = new DirectoryInfo(Application.persistentDataPath);
-            
-            //search the file that have the lastest write time. Also make sure that de char occupied in ? is an digit
-            FileInfo lastFile = dir.GetFiles("save?.json").OrderByDescending(f => f.LastWriteTime).First(f => Char.IsDigit(f.Name,4));
-
-            //Get the data from the file          
-            string data = File.ReadAllText(lastFile.FullName);
-            Debug.Log(lastFile.FullName);
-            Debug.Log(data);
-
-            //Transform the data into a SaveInfoList
-            datalist = JsonUtility.FromJson<SaveInfoList>(data);
-          
-            LoadedLevelInitialitation(datalist.savedataList);
-
-            //Get the number of the file that have the data and get the next one
-            currentsave = (int)Char.GetNumericValue(lastFile.Name, 4);
-            Debug.Log(currentsave);
-
-            if (currentsave < maxSaves) currentsave++;
-            else currentsave = 0;
-
-
-        }
-        catch(Exception e)
-        {
-            Debug.LogException(e);
-
-            DefaultLevelInitialitation(0);
-        }
-    }
-
-    //Initialize the levels from the level data
-    void LoadedLevelInitialitation (List<SaveInfo> datalist)
-    {
-        int i = 0;
-        for (; i < datalist.Count; i++)
-        {
-            levelList[i].set_Name(levelList[i].lvl_Prefab.name + "(Clone)");
-            levelList[i].lvl_Finished = datalist[i].lvl_Finished;
-            levelList[i].initialize();
-            levelList[i].flies_taken = datalist[i].flies_taken;
-        }
-        
-        if (i >= levelList.Count) return;
-
-        //If there are levels that havent been loaded, they are initialize by default
-        DefaultLevelInitialitation(i);
-    }
-    #endregion
-
-
+ 
     private void Awake()
     {
         if (_intance != null && _intance != this)
@@ -188,14 +45,24 @@ public class GameManager : MonoBehaviour
 
         inputManager.player = Instantiate(playerPref);
         inputManager.player.SetActive(false);
-        LoadSave();
+
+        int levelsInicialize = 0;
+        SaveManager.LoadSave(levelList, out levelsInicialize);
+        DefaultLevelInitialitation(levelsInicialize);
        
+     
+    }
+
+    public void DeleteSaves()
+    {
+        SaveManager.DeleteAllSaves();
+        DefaultLevelInitialitation(0);
     }
 
     #region Level Control
 
     //Initialize the levels to default state (Unfinished and 0 flies taken)
-    void DefaultLevelInitialitation (int index)
+    protected void DefaultLevelInitialitation (int index)
     {      
        
         for (; index < levelList.Count; index++)
@@ -234,7 +101,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        SaveData();
+       SaveManager.SaveData(levelList);
 
         Debug.Log(Application.persistentDataPath);
    
