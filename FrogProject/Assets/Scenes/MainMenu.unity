@@ -533,7 +533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flieNotTaken: {fileID: 21300000, guid: e1aadafe0c238324b8945176b1798405, type: 3}
   flieTaken: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  level: 0
+  level: -1
   flies:
   - {fileID: 621371659}
   - {fileID: 1844642237}
@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flieNotTaken: {fileID: 21300000, guid: e1aadafe0c238324b8945176b1798405, type: 3}
   flieTaken: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  level: 0
+  level: -1
   flies:
   - {fileID: 604480315}
   - {fileID: 371149539}
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flieNotTaken: {fileID: 21300000, guid: e1aadafe0c238324b8945176b1798405, type: 3}
   flieTaken: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  level: 0
+  level: -1
   flies:
   - {fileID: 233176041}
   - {fileID: 1065288453}
@@ -2881,7 +2881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flieNotTaken: {fileID: 21300000, guid: e1aadafe0c238324b8945176b1798405, type: 3}
   flieTaken: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  level: 0
+  level: 1
   flies:
   - {fileID: 1090145225}
   - {fileID: 1326452635}
@@ -5013,7 +5013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flieNotTaken: {fileID: 21300000, guid: e1aadafe0c238324b8945176b1798405, type: 3}
   flieTaken: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  level: 0
+  level: -1
   flies:
   - {fileID: 717552082}
   - {fileID: 2010594044}
@@ -5368,7 +5368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flieNotTaken: {fileID: 21300000, guid: e1aadafe0c238324b8945176b1798405, type: 3}
   flieTaken: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  level: 0
+  level: -1
   flies:
   - {fileID: 605877832}
   - {fileID: 14969232}
@@ -5587,7 +5587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flieNotTaken: {fileID: 21300000, guid: e1aadafe0c238324b8945176b1798405, type: 3}
   flieTaken: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  level: 0
+  level: -1
   flies:
   - {fileID: 1739677941}
   - {fileID: 1155643552}
@@ -6925,7 +6925,7 @@ PrefabInstance:
     - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
       propertyPath: levelList.Array.data[1].lvl_Prefab
       value: 
-      objectReference: {fileID: 8336036030868917312, guid: c4e8816e6095d2e4ab7c91866b2ec88c, type: 3}
+      objectReference: {fileID: 3236703494167971363, guid: efddd1399e14a3741be6d0bc7a204616, type: 3}
     - target: {fileID: 374051930721660264, guid: 9bc037764df4354459dd477962580d9e, type: 3}
       propertyPath: levelList.Array.data[0].lvl_Finished
       value: 0
