@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class LevelsButtons : MonoBehaviour
 {
@@ -16,15 +18,31 @@ public class LevelsButtons : MonoBehaviour
 
     private void OnEnable()
     {
-        //Change the sprite of the taken level's flies 
-        bool[] gmflies = GameManager._intance.GetFliesOfLevels(level);
+            Button button = this.GetComponentInChildren(typeof(Button)) as Button;                    
+            TextMeshProUGUI text = button.GetComponentInChildren(typeof(TextMeshProUGUI)) as TextMeshProUGUI;
 
-        for (int i = 0; i < flies.Length; i++)
+                
+            
+        if (level <= -1)
         {
-            if(gmflies[i])
-                flies[i].sprite = flieTaken;
-            else
-                flies[i].sprite = flieNotTaken;
+            button.interactable = false;
+            text.text = "Level not avalible";     
+        }
+        else
+        {
+            button.interactable = true;
+            text.text = "Level "+level;
+            //Change the sprite of the taken level's flies 
+            bool[] gmflies = GameManager._intance.GetFliesOfLevels(level);
+
+            for (int i = 0; i < flies.Length; i++)
+            {
+                if(gmflies[i])
+                    flies[i].sprite = flieTaken;
+                else
+                    flies[i].sprite = flieNotTaken;
+
+            }
 
         }
     }
@@ -33,6 +51,7 @@ public class LevelsButtons : MonoBehaviour
 
     public void GoToLevel()
     {
+
         GameManager._intance.StartLevel(level);
     }
 }
