@@ -78,10 +78,9 @@ MonoBehaviour:
   wayPoints:
   - {fileID: 6546324491732502136}
   - {fileID: 7333088041571915748}
-  - {fileID: 0}
   speed: 3
   circular: 0
-  tramp: {fileID: 0}
+  tramp: {fileID: 4937123968579265205}
 --- !u!1 &3992280678615133400
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +93,7 @@ GameObject:
   - component: {fileID: 2149661784189243558}
   - component: {fileID: 7874835666295687522}
   - component: {fileID: 685330563942501709}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: trap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

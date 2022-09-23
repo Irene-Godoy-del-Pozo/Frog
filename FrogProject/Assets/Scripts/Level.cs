@@ -12,6 +12,8 @@ public class Level : MonoBehaviour
 
     public List<Healer> healers = new List<Healer>();   //Heal Objects of the level
 
+    public GameObject scoreTab;
+
     GameObject player;
 
     public void SetPlayer(GameObject _player) 
@@ -38,10 +40,18 @@ public class Level : MonoBehaviour
         {
             healer.gameObject.SetActive(true);
         }
+        scoreTab.gameObject.SetActive(false);
     }
 
     public void LevelFinished ()
     {
+        GameManager._intance.PauseGame(true);
+        scoreTab.gameObject.SetActive(true);
+        /*  
+         *  sale el prefab de puntuaciones 
+         *      -(tendra un boton de salir)
+         *      -animacion de las moscas que se han recogido
+        */
         GameManager._intance.LevelFinished(this);
     }
 

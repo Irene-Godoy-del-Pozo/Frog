@@ -104,7 +104,8 @@ public class GameManager : MonoBehaviour
        SaveManager.SaveData(levelList);
 
         Debug.Log(Application.persistentDataPath);
-   
+
+        PauseGame(false);
     }
 
     public void StartLevel(int index)
