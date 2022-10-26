@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.4f1 (0abb6314276a) revision 703331'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19044.2006; Version 2009; 64bit' Language: 'es' Physical Memory: 16343 MB
+OS: 'Windows 10 Home; OS build 19044.2130; Version 2009; 64bit' Language: 'es' Physical Memory: 16343 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -15,11 +15,11 @@ E:/Cursos y proyectos/Programming/Projects/Frog/FrogProject
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-51153
+63859
 Successfully changed project path to: E:/Cursos y proyectos/Programming/Projects/Frog/FrogProject
 E:/Cursos y proyectos/Programming/Projects/Frog/FrogProject
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 53.72 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 53.20 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.4f1 (0abb6314276a)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Resources/UnitySubsystems
@@ -30,177 +30,83 @@ Direct3D:
     Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
     Vendor:   
     VRAM:     8079 MB
-    Driver:   30.0.14.7196
+    Driver:   31.0.15.2225
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56052
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56324
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.4f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.197387 seconds.
+Registered in 0.002210 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 54.33 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 55.57 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  7.285 seconds
+- Completed reload, in  2.741 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.062577 seconds.
+Registered in 0.001124 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 63.89 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 56.99 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  5.272 seconds
+- Completed reload, in  1.274 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 0.54 ms, found 1 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2182 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 99.7 MB.
-System memory in use after: 99.8 MB.
+Unloading 2183 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 99.8 MB.
+System memory in use after: 99.9 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2632.
-Total: 2.670800 ms (FindLiveObjects: 0.339900 ms CreateObjectMapping: 0.366500 ms MarkObjects: 1.897300 ms  DeleteObjects: 0.066300 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Sprites/Level
-  artifactKey: Guid(f7594f1ed096fc64faa79226fcb74f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Level using Guid(f7594f1ed096fc64faa79226fcb74f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecd7e10e75b54fa8b0dacc3493ec9455') in 0.008440 seconds
-  Import took 0.013343 seconds .
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2633.
+Total: 2.407200 ms (FindLiveObjects: 0.268000 ms CreateObjectMapping: 0.183300 ms MarkObjects: 1.882200 ms  DeleteObjects: 0.072700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 8.556681 seconds.
-  path: Assets/Sprites/Level/395841.png
-  artifactKey: Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Level/395841.png using Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e12b0e3d705285b0c846d992abe104b9') in 0.179800 seconds
-  Import took 0.183388 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 14.819560 seconds.
-  path: Assets/Sprites/Level/395841.png
-  artifactKey: Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Level/395841.png using Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df359c207aa5641dfdbd88f675b9cb5f') in 0.013143 seconds
-  Import took 0.016878 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 48.292325 seconds.
-  path: Assets/Sprites/Level/395841.png
-  artifactKey: Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Level/395841.png using Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '193358eccc8a0c94974045d1da34e9bc') in 0.116539 seconds
-  Import took 0.122695 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 22.308055 seconds.
-  path: Assets/Sprites/Level/395841.png
-  artifactKey: Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sprites/Level/395841.png using Guid(194beffe3a306de4380a43bc5a39ebbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3c8b686061557a5d077e37f776035ad') in 0.017751 seconds
-  Import took 0.028710 seconds .
+  path: Assets/Level Prefab/Levels/LevelTest.prefab
+  artifactKey: Guid(c4e8816e6095d2e4ab7c91866b2ec88c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Level Prefab/Levels/LevelTest.prefab using Guid(c4e8816e6095d2e4ab7c91866b2ec88c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4eca2d3f0173033c58d6142db322155f') in 0.175763 seconds
+  Import took 0.211788 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001854 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.316 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.0 MB.
-System memory in use after: 101.1 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2643.
-Total: 2.185100 ms (FindLiveObjects: 0.225600 ms CreateObjectMapping: 0.111600 ms MarkObjects: 1.830200 ms  DeleteObjects: 0.016700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Import Request.
-  Time since last request: 541.110525 seconds.
-  path: Assets/Level Prefab/Frog.prefab
-  artifactKey: Guid(897478a8dfabddc4c9e69704187884f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Level Prefab/Frog.prefab using Guid(897478a8dfabddc4c9e69704187884f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0a563c4192a637ecdde52b18003e4ef') in 0.121958 seconds
-  Import took 0.126674 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001372 seconds.
+Registered in 0.001058 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
 Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.454 seconds
+- Completed reload, in  1.092 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 1.60 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.46 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.1 MB.
-System memory in use after: 101.2 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2651.
-Total: 2.176100 ms (FindLiveObjects: 0.226400 ms CreateObjectMapping: 0.108700 ms MarkObjects: 1.824100 ms  DeleteObjects: 0.015800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.001556 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.43 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.186 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.50 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.1 MB.
+System memory in use before: 101.2 MB.
 System memory in use after: 101.3 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2655.
-Total: 2.319000 ms (FindLiveObjects: 0.202500 ms CreateObjectMapping: 0.102300 ms MarkObjects: 1.996100 ms  DeleteObjects: 0.017100 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2646.
+Total: 2.467300 ms (FindLiveObjects: 0.278800 ms CreateObjectMapping: 0.105400 ms MarkObjects: 2.032300 ms  DeleteObjects: 0.049800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
-Received Import Request.
-  Time since last request: 206.025939 seconds.
-  path: Assets/Level Prefab/Levels/End.prefab
-  artifactKey: Guid(3954857534d56bc41b8c207b01b98f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Level Prefab/Levels/End.prefab using Guid(3954857534d56bc41b8c207b01b98f20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fb8a509d788b3ebd191790b78013d45') in 0.081500 seconds
-  Import took 0.085618 seconds .
-
-========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001215 seconds.
+Registered in 0.001053 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.256 seconds
+- Completed reload, in  1.086 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Refreshing native plugins compatible for Editor in 0.43 ms, found 1 plugins.
@@ -209,441 +115,238 @@ Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 101.2 MB.
 System memory in use after: 101.3 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2660.
-Total: 2.104400 ms (FindLiveObjects: 0.213800 ms CreateObjectMapping: 0.102900 ms MarkObjects: 1.771900 ms  DeleteObjects: 0.014900 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2650.
+Total: 2.496200 ms (FindLiveObjects: 0.226400 ms CreateObjectMapping: 0.110700 ms MarkObjects: 2.136800 ms  DeleteObjects: 0.021100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001047 seconds.
+Registered in 0.001032 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.43 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.295 seconds
+- Completed reload, in  1.103 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.2 MB.
+System memory in use after: 101.4 MB.
+
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2654.
+Total: 2.608700 ms (FindLiveObjects: 0.290600 ms CreateObjectMapping: 0.185600 ms MarkObjects: 2.113700 ms  DeleteObjects: 0.018000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001052 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.082 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.2 MB.
-System memory in use after: 101.3 MB.
+System memory in use before: 101.3 MB.
+System memory in use after: 101.4 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2664.
-Total: 2.574900 ms (FindLiveObjects: 0.237700 ms CreateObjectMapping: 0.107400 ms MarkObjects: 2.210700 ms  DeleteObjects: 0.017700 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2658.
+Total: 2.235100 ms (FindLiveObjects: 0.228300 ms CreateObjectMapping: 0.117500 ms MarkObjects: 1.871000 ms  DeleteObjects: 0.017200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.011240 seconds.
+Registered in 0.001040 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.46 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.934 seconds
+- Completed reload, in  1.089 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.2 MB.
-System memory in use after: 101.3 MB.
+System memory in use before: 101.3 MB.
+System memory in use after: 101.4 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2668.
-Total: 3.178500 ms (FindLiveObjects: 0.236500 ms CreateObjectMapping: 0.124000 ms MarkObjects: 2.798500 ms  DeleteObjects: 0.017600 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2662.
+Total: 2.324300 ms (FindLiveObjects: 0.249100 ms CreateObjectMapping: 0.119200 ms MarkObjects: 1.924300 ms  DeleteObjects: 0.030100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001226 seconds.
+Registered in 0.001101 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.276 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.43 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.2 MB.
-System memory in use after: 101.3 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2672.
-Total: 2.392800 ms (FindLiveObjects: 0.238600 ms CreateObjectMapping: 0.111300 ms MarkObjects: 2.025500 ms  DeleteObjects: 0.016200 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.010050 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.531 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.43 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.2 MB.
-System memory in use after: 101.3 MB.
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2676.
-Total: 2.418600 ms (FindLiveObjects: 0.248800 ms CreateObjectMapping: 0.133900 ms MarkObjects: 2.011500 ms  DeleteObjects: 0.022800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.002039 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.51 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  2.066 seconds
+- Completed reload, in  1.097 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.2 MB.
-System memory in use after: 101.3 MB.
+System memory in use before: 101.3 MB.
+System memory in use after: 101.4 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2680.
-Total: 3.771400 ms (FindLiveObjects: 0.366500 ms CreateObjectMapping: 0.133600 ms MarkObjects: 3.253100 ms  DeleteObjects: 0.016700 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2666.
+Total: 2.457500 ms (FindLiveObjects: 0.302300 ms CreateObjectMapping: 0.170400 ms MarkObjects: 1.965000 ms  DeleteObjects: 0.018300 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001061 seconds.
+Registered in 0.001014 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.60 ms, found 1 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.435 seconds
-Platform modules already initialized, skipping
-Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
 Refreshing native plugins compatible for Editor in 0.43 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.117 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.2 MB.
+System memory in use before: 101.3 MB.
 System memory in use after: 101.4 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2684.
-Total: 2.433100 ms (FindLiveObjects: 0.226800 ms CreateObjectMapping: 0.110300 ms MarkObjects: 2.075000 ms  DeleteObjects: 0.019300 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2670.
+Total: 2.411200 ms (FindLiveObjects: 0.248700 ms CreateObjectMapping: 0.114800 ms MarkObjects: 2.006500 ms  DeleteObjects: 0.039700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.052112 seconds.
+Registered in 0.001131 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.43 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.231 seconds
+- Completed reload, in  1.112 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.51 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.45 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 101.2 MB.
+System memory in use before: 101.3 MB.
 System memory in use after: 101.4 MB.
 
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2688.
-Total: 2.537200 ms (FindLiveObjects: 0.306200 ms CreateObjectMapping: 0.223900 ms MarkObjects: 1.966600 ms  DeleteObjects: 0.038800 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2674.
+Total: 2.265000 ms (FindLiveObjects: 0.267000 ms CreateObjectMapping: 0.126600 ms MarkObjects: 1.852900 ms  DeleteObjects: 0.017100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001466 seconds.
+Registered in 0.001039 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.56 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.254 seconds
+- Completed reload, in  1.132 seconds
 Platform modules already initialized, skipping
 Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 0.65 ms, found 1 plugins.
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2168 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 103.7 MB.
-System memory in use after: 103.7 MB.
+Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.3 MB.
+System memory in use after: 101.4 MB.
 
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 2695.
-Total: 2.846000 ms (FindLiveObjects: 0.250500 ms CreateObjectMapping: 0.122200 ms MarkObjects: 2.367200 ms  DeleteObjects: 0.104500 ms)
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2678.
+Total: 2.249700 ms (FindLiveObjects: 0.221100 ms CreateObjectMapping: 0.112600 ms MarkObjects: 1.885400 ms  DeleteObjects: 0.029600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
-Received Import Request.
-  Time since last request: 38584.061879 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/+Document README+/Fantasy RPG - Manual.pdf
-  artifactKey: Guid(722e3f9ab5341496b8b362ee895a837a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/+Document README+/Fantasy RPG - Manual.pdf using Guid(722e3f9ab5341496b8b362ee895a837a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc79b9e561e3ec865501c0defdacec18') in 0.031999 seconds
-  Import took 0.037332 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001091 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.104 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.41 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.3 MB.
+System memory in use after: 101.4 MB.
 
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2682.
+Total: 2.546000 ms (FindLiveObjects: 0.278700 ms CreateObjectMapping: 0.132700 ms MarkObjects: 2.116900 ms  DeleteObjects: 0.016500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
-Received Import Request.
-  Time since last request: 491.768290 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Extensions
-  artifactKey: Guid(82cb9fd2c159b4e049259b962041b2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Extensions using Guid(82cb9fd2c159b4e049259b962041b2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e73d2292983aa06dd71ee8febb5e861') in 0.007689 seconds
-  Import took 0.012248 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001106 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.749 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.85 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.3 MB.
+System memory in use after: 101.5 MB.
 
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2686.
+Total: 3.001500 ms (FindLiveObjects: 0.236800 ms CreateObjectMapping: 0.117800 ms MarkObjects: 2.624700 ms  DeleteObjects: 0.021100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
 ========================================================================
-Received Import Request.
-  Time since last request: 1.111321 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Extensions/UIParticle
-  artifactKey: Guid(2a5f5421e89ff468e876f2cd0d53113f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Extensions/UIParticle using Guid(2a5f5421e89ff468e876f2cd0d53113f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0631ee49763826435bad32f8b423fcbc') in 0.008051 seconds
-  Import took 0.012719 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001046 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.217 seconds
+Platform modules already initialized, skipping
+Switching build target platform(5) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.42 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2163 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 101.3 MB.
+System memory in use after: 101.5 MB.
 
-========================================================================
-Received Import Request.
-  Time since last request: 8.873258 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs
-  artifactKey: Guid(40f56bb24e705455b9a3789dfb47ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs using Guid(40f56bb24e705455b9a3789dfb47ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e166d76663ab7ce8ce01659a0d5b110') in 0.007810 seconds
-  Import took 0.011428 seconds .
+Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 2690.
+Total: 2.832900 ms (FindLiveObjects: 0.361100 ms CreateObjectMapping: 0.189900 ms MarkObjects: 2.263600 ms  DeleteObjects: 0.017000 ms)
 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000700 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs
-  artifactKey: Guid(40f56bb24e705455b9a3789dfb47ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs using Guid(40f56bb24e705455b9a3789dfb47ffd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e166d76663ab7ce8ce01659a0d5b110') in 0.002214 seconds
-  Import took 0.006387 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 412.085514 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons
-  artifactKey: Guid(9906f78dd6c6341f783bf01609a0108c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons using Guid(9906f78dd6c6341f783bf01609a0108c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3a82d57a4fee59763f80dedfb54d775') in 0.008930 seconds
-  Import took 0.013593 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.189438 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/_PrefabsPanel_Buttons.prefab
-  artifactKey: Guid(5dfe03b1b3eba4fb6b3a5a42015afdc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/_PrefabsPanel_Buttons.prefab using Guid(5dfe03b1b3eba4fb6b3a5a42015afdc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f5fb788a089323b29679c4ef76cd16d') in 0.117935 seconds
-  Import took 0.122526 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000246 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Dim.prefab
-  artifactKey: Guid(0eafc1614a0ec4e84994a74cff36db84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Dim.prefab using Guid(0eafc1614a0ec4e84994a74cff36db84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '176c85c797fa3c808a0d09cbf36afc96') in 0.016271 seconds
-  Import took 0.020206 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000203 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Red.prefab
-  artifactKey: Guid(7014b5a219df84cbd97ef7bd5830de3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Red.prefab using Guid(7014b5a219df84cbd97ef7bd5830de3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8aa9dd61d75ebc35518a1d1f32a5d7f0') in 0.008758 seconds
-  Import took 0.013280 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000211 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Yellow.prefab
-  artifactKey: Guid(9e3dc5478531a44ea9d3d15a9f4f0690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Yellow.prefab using Guid(9e3dc5478531a44ea9d3d15a9f4f0690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a69471f20b2742acbbe6033732d78d1') in 0.015079 seconds
-  Import took 0.019267 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000176 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Mint.prefab
-  artifactKey: Guid(c7f082ce7c2dc40da9fd383bae796e6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Mint.prefab using Guid(c7f082ce7c2dc40da9fd383bae796e6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5055e288649d1dbc592e2d1b8c0e6b8') in 0.015648 seconds
-  Import took 0.020445 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000181 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Purple.prefab
-  artifactKey: Guid(8813307fa2c464baeaa2b0733ac11962) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Purple.prefab using Guid(8813307fa2c464baeaa2b0733ac11962) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff2d8e9769652dee73564f0155aeb0c0') in 0.014545 seconds
-  Import took 0.018325 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000176 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Blue.prefab
-  artifactKey: Guid(1b5c3342956ea4f2391c4e10ce034478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Blue.prefab using Guid(1b5c3342956ea4f2391c4e10ce034478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '999976ed342e80bfc67cced5f18a5aca') in 0.008426 seconds
-  Import took 0.012522 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000198 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle03_Green.prefab
-  artifactKey: Guid(6f457722106534880ba19ad760aa35d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle03_Green.prefab using Guid(6f457722106534880ba19ad760aa35d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3525be871fcc252b3caf7c1a9867e762') in 0.014024 seconds
-  Import took 0.018076 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000196 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Red.prefab
-  artifactKey: Guid(bafa083cebd8a44b3a2ea74ef38ae939) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Red.prefab using Guid(bafa083cebd8a44b3a2ea74ef38ae939) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29dc8a64e9371ff9d7b438c190318dd1') in 0.014651 seconds
-  Import took 0.019476 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000178 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Dark.prefab
-  artifactKey: Guid(272bc530c5144401191ea457c9ac6e36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Dark.prefab using Guid(272bc530c5144401191ea457c9ac6e36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aaf21f4cd82c691653276cc960c1232b') in 0.015654 seconds
-  Import took 0.019465 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000195 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01-Group.prefab
-  artifactKey: Guid(7b5346a28de194b5dbfef09d38fed5c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01-Group.prefab using Guid(7b5346a28de194b5dbfef09d38fed5c6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2300e6aa53e8dac7f2ff6d64d859be00') in 0.019929 seconds
-  Import took 0.023931 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle02_Blue.prefab
-  artifactKey: Guid(d097a1fce7c5a4d80b7c9ffeea14e540) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle02_Blue.prefab using Guid(d097a1fce7c5a4d80b7c9ffeea14e540) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8cb923f3b34f8e36d41f751fae6d48ad') in 0.014260 seconds
-  Import took 0.018212 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000167 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Brown.prefab
-  artifactKey: Guid(489c6aee211b44414872f7afdf05d7a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Brown.prefab using Guid(489c6aee211b44414872f7afdf05d7a5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '256dc62dff0b2dc3ce7bc9a7eb854095') in 0.017444 seconds
-  Import took 0.021583 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000169 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle02.prefab
-  artifactKey: Guid(4522bc66b01214a1190da64aa3348c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle02.prefab using Guid(4522bc66b01214a1190da64aa3348c98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '539334c81cc5165a6bbae4917bcd7c3e') in 0.008344 seconds
-  Import took 0.011982 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000174 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Sqeure01.prefab
-  artifactKey: Guid(0767699d167fa4530a0fb52359271ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Sqeure01.prefab using Guid(0767699d167fa4530a0fb52359271ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '660431d0be6ad64034ee4357deab1e2f') in 0.026901 seconds
-  Import took 0.031044 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000201 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle04.prefab
-  artifactKey: Guid(f4df4f50c3d39462d88eebbd8e0fbd21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle04.prefab using Guid(f4df4f50c3d39462d88eebbd8e0fbd21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92f535b396f8cc3adf81d813684880dd') in 0.016236 seconds
-  Import took 0.020179 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000214 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Purple.prefab
-  artifactKey: Guid(87f0c6aa9b85045efb55b6f6ad1df416) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Purple.prefab using Guid(87f0c6aa9b85045efb55b6f6ad1df416) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '248aeff387ceb68e701c340e492714f3') in 0.008882 seconds
-  Import took 0.012752 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000171 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Gray.prefab
-  artifactKey: Guid(018947ce1abc14047b699d7e8fdcf673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Gray.prefab using Guid(018947ce1abc14047b699d7e8fdcf673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '497d80e53171ca5fdb349a3b7c59a156') in 0.014835 seconds
-  Import took 0.018638 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000172 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Blue.prefab
-  artifactKey: Guid(494d623cffdaf49938f9d0998f25c059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Blue.prefab using Guid(494d623cffdaf49938f9d0998f25c059) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b88afb021f3e00eeea5401637255b2b2') in 0.014118 seconds
-  Import took 0.019114 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_White.prefab
-  artifactKey: Guid(d1391910418d64ed18f1faeb4b5ab518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_White.prefab using Guid(d1391910418d64ed18f1faeb4b5ab518) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f154d4d8c09cf08afa2eb9514b51c5d') in 0.015341 seconds
-  Import took 0.019296 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Gray.prefab
-  artifactKey: Guid(9d89c20d058fc4b1abfb0c4a398836eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Gray.prefab using Guid(9d89c20d058fc4b1abfb0c4a398836eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3124dba54168ea6d9fb9e1c31dac68bd') in 0.008380 seconds
-  Import took 0.012244 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01-Group.prefab
-  artifactKey: Guid(c1416f6d45d65495c864f7bd344f39ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01-Group.prefab using Guid(c1416f6d45d65495c864f7bd344f39ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0506b2e1e242da34ded6fbdeb15deeae') in 0.009819 seconds
-  Import took 0.014143 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000330 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Green.prefab
-  artifactKey: Guid(abc2d5e23e86f4587b4e10b38c668f34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Circle01_Green.prefab using Guid(abc2d5e23e86f4587b4e10b38c668f34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c0a0ac588df0c353741abb6fe0a8e36') in 0.008619 seconds
-  Import took 0.012793 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000171 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Green.prefab
-  artifactKey: Guid(ce66926fbee764449a9784a32e1d5033) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_Green.prefab using Guid(ce66926fbee764449a9784a32e1d5033) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb729ed967e7d29bdb2515ad5b506d1b') in 0.013697 seconds
-  Import took 0.018169 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000182 seconds.
-  path: Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_BlueGray.prefab
-  artifactKey: Guid(9769f05840cde480fa6bf1bd95e703e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/GUI PRO Kit - Fantasy RPG/Prefabs/Prefabs_Component_Buttons/Button_Rectangle01_BlueGray.prefab using Guid(9769f05840cde480fa6bf1bd95e703e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28d86849ad4c2ade8edea84a328d35f1') in 0.015195 seconds
-  Import took 0.018993 seconds .
-
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000

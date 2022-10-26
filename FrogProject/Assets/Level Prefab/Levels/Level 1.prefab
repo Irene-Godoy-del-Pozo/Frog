@@ -1302,6 +1302,7 @@ MonoBehaviour:
   healers:
   - {fileID: 8835257143902374954}
   - {fileID: 8835257143772397319}
+  scoreTab: {fileID: 0}
   healthUI: {fileID: 686463666479416284}
 --- !u!1 &3236703494277166240
 GameObject:
