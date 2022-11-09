@@ -814,7 +814,6 @@ MonoBehaviour:
   - {fileID: 5980364978206288856}
   - {fileID: 3162151922612779186}
   - {fileID: 5248572394919841840}
-  scoreTab: {fileID: 0}
   healthUI: {fileID: 5441539379670513725}
 --- !u!1 &8336036031104677612
 GameObject:

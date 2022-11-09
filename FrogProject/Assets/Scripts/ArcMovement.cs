@@ -37,9 +37,22 @@ public class ArcMovement : MonoBehaviour
 
     public Vector3 respawnPosition;
 
-    void Start()
-    {
+    //void Start()
+    //{
 
+    //    line_renderer = GetComponent<LineRenderer>();
+
+    //    rb = GetComponent<Rigidbody2D>();
+
+    //    //Reset the Line Renderer's points count
+    //    ClearLineRenderer(points.Count);
+    //    isGrounded = true;
+
+        
+    //    Respawn();
+    //}
+    private void OnEnable()
+    {
         line_renderer = GetComponent<LineRenderer>();
 
         rb = GetComponent<Rigidbody2D>();
@@ -48,11 +61,10 @@ public class ArcMovement : MonoBehaviour
         ClearLineRenderer(points.Count);
         isGrounded = true;
 
-        
+
         Respawn();
     }
 
-    
     public void StartTrajectoryPrediction(Vector2 start , FrogActions frogInput)
     {
         if (!isGrounded) return; //Cant predict in the air
