@@ -103,17 +103,7 @@ public class EditorUITweening : Editor
 
      
 
-        //myUI.activate_begining = EditorGUILayout.Toggle("Activate in the begining", myUI.activate_begining);
-
-        //myUI.deactivate_ending = EditorGUILayout.Toggle("Deactivate in the end", myUI.deactivate_ending);
-
-        if (GUILayout.Button("debug")) 
-        {
-            // myUI.gameObject.GetComponent<RectTransform>().position = myUI.startPosition;
-            // myUI.gameObject.GetComponent<RectTransform>().sizeDelta = myUI.startSize;
-
-           // myUI.StartCoroutine(myUI.MoveUI(false));
-        }
+       
     }
 
 
